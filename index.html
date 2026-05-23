@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RSGMP Moestopo - Pelayanan Gigi Modern</title>
+    <title>RSGMP Moestopo - Pelayanan & Pendidikan Medis Modern</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Mengambil sampel warna dari logo Moestopo */
         :root {
-            --purple-main: #514fa1; /* Ungu khas Moestopo */
-            --red-accent: #e11d48;
-            --green-medical: #4ade80;
+            --purple-main: #514fa1;
+            --purple-light: #f5f3ff;
         }
         html { scroll-behavior: smooth; }
         .bg-purple-moestopo { background-color: var(--purple-main); }
@@ -28,17 +26,22 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-24">
                 <div class="flex items-center space-x-4">
-                    <img src="logo.png" alt="Logo RSGMP Moestopo" class="h-16 w-auto">
-                    <div class="hidden sm:block">
-                        <span class="font-bold text-xl tracking-tight block text-purple-moestopo uppercase">RSGMP MOESTOPO</span>
+                    <img src="logo.png" alt="Logo RSGMP Moestopo" class="h-16 w-auto" onerror="this.src='https://via.placeholder.com/60?text=RSGMP'">
+                    <div>
+                        <span class="font-bold text-lg md:text-xl tracking-tight block text-purple-moestopo uppercase">RSGMP MOESTOPO</span>
                         <span class="text-xs text-slate-500 block font-medium">Univ. Prof. Dr. Moestopo (Beragama)</span>
                     </div>
                 </div>
-                <div class="hidden md:flex items-center space-x-6 font-semibold">
+                <div class="hidden lg:flex items-center space-x-6 font-semibold text-sm">
                     <a href="#beranda" class="text-slate-600 hover:text-purple-moestopo transition">Beranda</a>
-                    <a href="#sop" class="text-slate-600 hover:text-purple-moestopo transition">Fitur SOP</a>
+                    <a href="#alur-pelayanan" class="text-slate-600 hover:text-purple-moestopo transition">Alur Pasien</a>
+                    <a href="#sop" class="text-slate-600 hover:text-purple-moestopo transition">Manajemen K3</a>
                     <a href="#layanan" class="text-slate-600 hover:text-purple-moestopo transition">Layanan</a>
-                    <a href="#kontak" class="bg-purple-moestopo text-white px-6 py-2 rounded-full hover:shadow-lg transition transform hover:-translate-y-1">Janji Temu</a>
+                    <a href="#jadwal" class="text-slate-600 hover:text-purple-moestopo transition">Jadwal Dokter</a>
+                    <a href="#fasilitas" class="text-slate-600 hover:text-purple-moestopo transition">Fasilitas</a>
+                    <a href="#k3-report" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition flex items-center gap-2">
+                        <i class="fas fa-exclamation-triangle"></i> Lapor K3
+                    </a>
                 </div>
             </div>
         </div>
@@ -47,108 +50,277 @@
     <section id="beranda" class="pt-40 pb-20 bg-medical-gradient relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="space-y-8">
-                    <div class="inline-flex items-center space-x-2 bg-white border border-purple-200 text-purple-700 px-4 py-2 rounded-full text-sm font-bold shadow-sm">
+                <div class="space-y-6">
+                    <div class="inline-flex items-center space-x-2 bg-white border border-purple-200 text-purple-700 px-4 py-1.5 rounded-full text-xs font-bold shadow-sm">
                         <span class="flex h-2 w-2 rounded-full bg-green-500 animate-ping"></span>
-                        <span>Instalasi Gawat Darurat 24 Jam Aktif</span>
+                        <span>Laporan Operasional & K3 Umum Terintegrasi</span>
                     </div>
-                    <h1 class="text-5xl md:text-6xl font-black text-slate-900 leading-tight">
-                        Senyum Sehat Anda Adalah <span class="text-purple-moestopo">Prioritas Kami.</span>
+                    <h1 class="text-4xl md:text-5xl font-black text-slate-900 leading-tight">
+                        Pelayanan Prima, Pendidikan Unggul, <span class="text-purple-moestopo">SOP Terjaga.</span>
                     </h1>
-                    <p class="text-slate-600 text-xl leading-relaxed">
-                        Rumah Sakit Gigi dan Mulut Pendidikan Moestopo menghadirkan perawatan spesialis dengan standar keamanan medis tertinggi dan teknologi terkini.
+                    <p class="text-slate-600 text-base md:text-lg leading-relaxed">
+                        Rumah Sakit Gigi dan Mulut Pendidikan Moestopo mengutamakan keselamatan pasien dan tenaga medis melalui implementasi manajemen tata kelola K3RS yang ketat dan akuntabel.
                     </p>
                     <div class="flex flex-wrap gap-4">
-                        <a href="#sop" class="bg-purple-moestopo text-white px-8 py-4 rounded-xl font-bold shadow-xl hover:bg-opacity-90 transition flex items-center">
-                            <i class="fas fa-file-shield mr-2"></i> Lihat Standar SOP
+                        <a href="#alur-pelayanan" class="bg-purple-moestopo text-white px-6 py-3 rounded-xl font-bold shadow-xl hover:bg-opacity-90 transition flex items-center text-sm">
+                            <i class="fas fa-network-wired mr-2"></i> Alur Pelayanan
                         </a>
-                        <a href="#layanan" class="bg-white text-purple-moestopo border-2 border-purple-moestopo px-8 py-4 rounded-xl font-bold hover:bg-purple-50 transition">
-                            Layanan Medis
+                        <a href="#jadwal" class="bg-white text-purple-moestopo border-2 border-purple-moestopo px-6 py-3 rounded-xl font-bold hover:bg-purple-50 transition text-sm">
+                            Lihat Jadwal Dokter
                         </a>
                     </div>
                 </div>
                 <div class="relative flex justify-center">
                     <div class="absolute inset-0 bg-purple-moestopo opacity-10 rounded-full blur-3xl transform scale-75"></div>
-                    <img src="logo.png" alt="Hero Logo" class="relative z-10 w-full max-w-md drop-shadow-2xl animate-pulse">
+                    <img src="logo.png" alt="Hero Logo" class="relative z-10 w-full max-w-xs drop-shadow-2xl" onerror="this.style.display='none'">
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="sop" class="py-24 bg-white">
+    <section id="alur-pelayanan" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-black text-slate-900 mb-4">Fitur Standar Operasional</h2>
-                <div class="w-24 h-2 bg-purple-moestopo mx-auto rounded-full"></div>
-                <p class="text-slate-500 mt-6 text-lg max-w-2xl mx-auto">Kami mengedepankan prosedur keselamatan kerja (K3) dan manajemen rumah sakit digital yang transparan.</p>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-black text-slate-900 mb-2">Alur Pendaftaran & Pelayanan</h2>
+                <div class="w-20 h-1.5 bg-purple-moestopo mx-auto rounded-full"></div>
+                <p class="text-slate-500 mt-4 text-sm">SOP Alur Penerimaan Pasien Transparan dan Teratur</p>
             </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center relative">
+                    <div class="w-10 h-10 bg-purple-moestopo text-white rounded-full flex items-center justify-center font-bold mx-auto mb-4 shadow">1</div>
+                    <h4 class="font-bold text-slate-800 mb-2">Pendaftaran / Skrining</h4>
+                    <p class="text-xs text-slate-500">Pasien melakukan registrasi online atau offline di loket serta skrining kesehatan umum awal.</p>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center relative">
+                    <div class="w-10 h-10 bg-purple-moestopo text-white rounded-full flex items-center justify-center font-bold mx-auto mb-4 shadow">2</div>
+                    <h4 class="font-bold text-slate-800 mb-2">Pemeriksaan Pemetaan</h4>
+                    <p class="text-xs text-slate-500">Pemeriksaan intraoral di unit diagnosis untuk menentukan jenis spesialisasi atau kluster tindakan mahasiswa/dosen.</p>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center relative">
+                    <div class="w-10 h-10 bg-purple-moestopo text-white rounded-full flex items-center justify-center font-bold mx-auto mb-4 shadow">3</div>
+                    <h4 class="font-bold text-slate-800 mb-2">Tindakan Klinis</h4>
+                    <p class="text-xs text-slate-500">Pelaksanaan perawatan medis di dental unit steril sesuai dengan pedoman diagnosis dan instruksi kerja medis.</p>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center relative">
+                    <div class="w-10 h-10 bg-purple-moestopo text-white rounded-full flex items-center justify-center font-bold mx-auto mb-4 shadow">4</div>
+                    <h4 class="font-bold text-slate-800 mb-2">Kasir & Farmasi</h4>
+                    <p class="text-xs text-slate-500">Penyelesaian administrasi biaya, pengambilan obat pasca-tindakan, dan edukasi instruksi perawatan rumah.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section id="sop" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-black text-slate-900 mb-2">Manajemen Mutu & K3RS</h2>
+                <div class="w-20 h-1.5 bg-purple-moestopo mx-auto rounded-full"></div>
+                <p class="text-slate-500 mt-4 text-sm">Menjamin Keselamatan Lingkungan Kerja dan Fasilitas Kesehatan</p>
+            </div>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-purple-300 transition-all hover:shadow-2xl group">
-                    <div class="w-16 h-16 bg-purple-moestopo text-white rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-lg group-hover:rotate-6 transition-transform">
-                        <i class="fas fa-hand-holding-medical"></i>
+                <div class="p-6 rounded-2xl bg-white border border-slate-100 hover:shadow-xl transition group">
+                    <div class="w-12 h-12 bg-purple-moestopo text-white rounded-xl flex items-center justify-center text-2xl mb-4 shadow-md">
+                        <i class="fas fa-biohazard"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mb-4">Prosedur K3RS</h3>
-                    <p class="text-slate-600 leading-relaxed text-sm">Keselamatan dan Kesehatan Kerja Rumah Sakit yang menjamin keamanan pasien, dokter, dan staf dari risiko infeksi silang maupun kecelakaan kerja.</p>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">Pengolahan Limbah Medis B3</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">SOP penanganan limbah tajam, infeksius, dan amalgam secara terpisah demi kepatuhan tinggi terhadap regulasi kelestarian lingkungan hidup.</p>
                 </div>
-
-                <div class="p-8 rounded-3xl bg-purple-moestopo text-white shadow-xl transform scale-105 transition-all">
-                    <div class="w-16 h-16 bg-white text-purple-moestopo rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-lg rotate-3">
-                        <i class="fas fa-vial-circle-check"></i>
+                <div class="p-6 rounded-2xl bg-purple-moestopo text-white shadow-xl transform scale-105 transition-all">
+                    <div class="w-12 h-12 bg-white text-purple-moestopo rounded-xl flex items-center justify-center text-2xl mb-4 shadow-md">
+                        <i class="fas fa-shield-virus"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">SOP Sterilisasi</h3>
-                    <p class="opacity-90 leading-relaxed text-sm">Setiap alat melalui proses pembersihan ultrasonik, pencucian kimia, dan sterilisasi autoklaf kelas medis (SOP ISO 9001).</p>
-                    <ul class="mt-4 space-y-2 text-xs">
-                        <li><i class="fas fa-check-circle mr-2 text-green-300"></i> Double Sterilization Check</li>
-                        <li><i class="fas fa-check-circle mr-2 text-green-300"></i> Disinfeksi Area Periodik</li>
-                    </ul>
+                    <h3 class="text-lg font-bold mb-2">SOP Sterilisasi CSSD</h3>
+                    <p class="opacity-90 text-xs leading-relaxed">Pemberlakuan alur searah (One-Way Workflow) dari area kotor, pencucian, pengemasan, hingga sterilisasi menggunakan autoklaf uap bertaraf internasional.</p>
                 </div>
-
-                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-purple-300 transition-all hover:shadow-2xl group">
-                    <div class="w-16 h-16 bg-purple-moestopo text-white rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-lg group-hover:rotate-6 transition-transform">
-                        <i class="fas fa-user-shield"></i>
+                <div class="p-6 rounded-2xl bg-white border border-slate-100 hover:shadow-xl transition group">
+                    <div class="w-12 h-12 bg-purple-moestopo text-white rounded-xl flex items-center justify-center text-2xl mb-4 shadow-md">
+                        <i class="fas fa-fire-extinguisher"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mb-4">Manajemen Pasien</h3>
-                    <p class="text-slate-600 leading-relaxed text-sm">Sistem antrean digital dan rekam medis elektronik yang memastikan data pasien terkelola dengan aman sesuai standar regulasi kesehatan nasional.</p>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">Mitigasi Tanggap Darurat</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Inspeksi periodik sistem proteksi kebakaran aktif (APAR, Hydrant) dan simulasi jalur evakuasi gempa/kebakaran bagi seluruh civitas hospitalia.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer id="kontak" class="bg-slate-900 text-white pt-20 pb-10">
+    <section id="layanan" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-12 mb-16">
-                <div class="col-span-1 md:col-span-2">
-                    <div class="flex items-center space-x-3 mb-6">
-                        <img src="logo.png" alt="Footer Logo" class="h-12 bg-white p-1 rounded-lg">
-                        <span class="font-black text-2xl tracking-tighter">RSGMP MOESTOPO</span>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-black text-slate-900 mb-2">Klinik Integrasi & Spesialis</h2>
+                <div class="w-20 h-1.5 bg-purple-moestopo mx-auto rounded-full"></div>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-slate-50 p-6 rounded-xl text-center border border-slate-100">
+                    <div class="w-12 h-12 bg-purple-100 text-purple-moestopo rounded-full flex items-center justify-center text-xl mx-auto mb-3">
+                        <i class="fas fa-tooth"></i>
                     </div>
-                    <p class="text-slate-400 max-w-sm mb-6">Pusat layanan kesehatan gigi dan mulut yang mengintegrasikan pendidikan dan pelayanan klinis prima.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-purple-moestopo transition"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-purple-moestopo transition"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-purple-moestopo transition"><i class="fab fa-whatsapp"></i></a>
+                    <h4 class="font-bold text-slate-800 text-sm mb-1">Konservasi Gigi</h4>
+                    <p class="text-slate-500 text-xs">Perawatan saluran akar komprehensif, restorasi estetik komplek.</p>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-xl text-center border border-slate-100">
+                    <div class="w-12 h-12 bg-purple-100 text-purple-moestopo rounded-full flex items-center justify-center text-xl mx-auto mb-3">
+                        <i class="fas fa-grip-lines-vertical"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-800 text-sm mb-1">Ortodonti</h4>
+                    <p class="text-slate-500 text-xs">Koreksi maloklusi interseptif maupun cekat estetik dewasa.</p>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-xl text-center border border-slate-100">
+                    <div class="w-12 h-12 bg-purple-100 text-purple-moestopo rounded-full flex items-center justify-center text-xl mx-auto mb-3">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-800 text-sm mb-1">Kedokteran Gigi Anak</h4>
+                    <p class="text-slate-500 text-xs">Manajemen perilaku preventif dan kuratif ramah anak.</p>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-xl text-center border border-slate-100">
+                    <div class="w-12 h-12 bg-purple-100 text-purple-moestopo rounded-full flex items-center justify-center text-xl mx-auto mb-3">
+                        <i class="fas fa-crutch"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-800 text-sm mb-1">Bedah Mulut</h4>
+                    <p class="text-slate-500 text-xs">Odontektomi gigi impaksi, implan gigi, biopsi lesi rongga mulut.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="jadwal" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-black text-slate-900 mb-2">Jadwal Praktik Dokter Spesialis</h2>
+                <div class="w-20 h-1.5 bg-purple-moestopo mx-auto rounded-full"></div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-slate-200">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-sm">
+                        <thead>
+                            <tr class="bg-purple-moestopo text-white font-bold">
+                                <th class="p-4">Klinik Spesialis</th>
+                                <th class="p-4">Senin - Rabu</th>
+                                <th class="p-4">Kamis - Jumat</th>
+                                <th class="p-4">Sabtu</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 text-slate-700">
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-4 font-semibold">Spesialis Ortodonti (Orthodontics)</td>
+                                <td class="p-4">09:00 - 15:00 WIB</td>
+                                <td class="p-4">09:00 - 15:00 WIB</td>
+                                <td class="p-4 text-red-500 font-medium">Perjanjian Khusus</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-4 font-semibold">Spesialis Bedah Mulut & Maksilofasial</td>
+                                <td class="p-4">10:00 - 16:00 WIB</td>
+                                <td class="p-4">10:00 - 16:00 WIB</td>
+                                <td class="p-4">09:00 - 13:00 WIB</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-4 font-semibold">Spesialis Konservasi Gigi (Endodonti)</td>
+                                <td class="p-4">08:30 - 14:30 WIB</td>
+                                <td class="p-4">08:30 - 14:30 WIB</td>
+                                <td class="p-4">08:30 - 12:00 WIB</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="fasilitas" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-black text-slate-900 mb-2">Fasilitas Utama Penunjang</h2>
+                <div class="w-20 h-1.5 bg-purple-moestopo mx-auto rounded-full"></div>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 hover:shadow-lg transition">
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-3 text-purple-moestopo font-bold text-lg">
+                            <i class="fas fa-radiation"></i> <h4>Radiologi Kedokteran Gigi</h4>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">Fasilitas diagnostik mutakhir yang dilengkapi dengan X-Ray Periapikal digital, Panoramik, Sefalometri, serta CBCT 3D untuk visualisasi struktur maksilofasial yang presisi.</p>
+                    </div>
+                </div>
+                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 hover:shadow-lg transition">
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-3 text-purple-moestopo font-bold text-lg">
+                            <i class="fas fa-laptop-medical"></i> <h4>Dental Simulator Lab</h4>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">Fasilitas laboratorium preklinik canggih bagi mahasiswa kedokteran gigi untuk mengasah kemampuan taktil psikomotorik sebelum menangani pasien nyata di klinik integrasi.</p>
+                    </div>
+                </div>
+                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 hover:shadow-lg transition">
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-3 text-purple-moestopo font-bold text-lg">
+                            <i class="fas fa-hospital-user"></i> <h4>Instalasi Gawat Darurat (IGD)</h4>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">Unit penanganan cepat darurat 24 jam untuk kasus trauma wajah, fraktur rahang, perdarahan masif rongga mulut, serta infeksi odontogenik akut.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="k3-report" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-black mb-2 text-red-400"><i class="fas fa-exclamation-triangle mr-2"></i>Form Pelaporan K3RS & Pengaduan</h2>
+                <p class="text-slate-400 text-xs">Ditemukan unsafe action, unsafe condition, atau kendala operasional? Laporkan segera secara rahasia demi keselamatan bersama.</p>
+            </div>
+            <form class="space-y-4 bg-slate-800 p-8 rounded-2xl border border-slate-700" onsubmit="alert('Laporan berhasil dikirim ke unit K3RS & Manajemen.'); return false;">
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold uppercase mb-1 text-slate-300">Nama Pelapor (Bisa Anonim)</label>
+                        <input type="text" class="w-full bg-slate-900 text-white rounded-lg p-3 text-sm border border-slate-700 focus:outline-none focus:border-red-400" placeholder="Contoh: Staf GA / Umum">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase mb-1 text-slate-300">Kategori Temuan</label>
+                        <select class="w-full bg-slate-900 text-white rounded-lg p-3 text-sm border border-slate-700 focus:outline-none focus:border-red-400">
+                            <option>Potensi Bahaya Fisik/Fasilitas</option>
+                            <option>Kerusakan Instrumen Sterilisasi</option>
+                            <option>Pelanggaran Penggunaan APD</option>
+                            <option>Saran Perbaikan Mutu Pelayanan</option>
+                        </select>
                     </div>
                 </div>
                 <div>
-                    <h4 class="font-bold text-lg mb-6 text-purple-300 uppercase tracking-widest text-sm">Layanan Medis</h4>
-                    <ul class="space-y-3 text-slate-400 text-sm">
-                        <li>Bedah Mulut & Maksilofasial</li>
-                        <li>Konservasi Gigi (Endodontik)</li>
-                        <li>Ortodonti (Kawat Gigi)</li>
-                        <li>Kedokteran Gigi Anak</li>
-                    </ul>
+                    <label class="block text-xs font-semibold uppercase mb-1 text-slate-300">Deskripsi Detail Temuan / Masukan</label>
+                    <textarea rows="4" class="w-full bg-slate-900 text-white rounded-lg p-3 text-sm border border-slate-700 focus:outline-none focus:border-red-400" placeholder="Tulis kronologi kejadian atau rincian sarana prasarana yang perlu diperbaiki..."></textarea>
+                </div>
+                <button type="submit" class="w-full bg-red-500 hover:bg-red-600 text-white font-bold p-3 rounded-lg text-sm shadow-lg transition">
+                    Kirim Laporan Resmi ke Unit GA & SDM
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-slate-950 text-white pt-16 pb-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <img src="logo.png" alt="Footer Logo" class="h-10 bg-white p-1 rounded-md" onerror="this.style.display='none'">
+                        <span class="font-black text-xl tracking-tight">RSGMP MOESTOPO</span>
+                    </div>
+                    <p class="text-slate-400 text-xs max-w-sm leading-relaxed">Pusat pelayanan klinis gigi modern terintegrasi dengan penjaminan mutu tata kelola Keselamatan & Kesehatan Kerja Rumah Sakit (K3RS).</p>
                 </div>
                 <div>
-                    <h4 class="font-bold text-lg mb-6 text-purple-300 uppercase tracking-widest text-sm">Hubungi</h4>
-                    <ul class="space-y-4 text-slate-400 text-sm">
-                        <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-3 text-purple-400"></i> Jl. Bintaro Permai Raya No.3, Pesanggrahan, Jakarta Selatan.</li>
-                        <li class="flex items-center"><i class="fas fa-phone-alt mr-3 text-purple-400"></i> (021) 73885254</li>
+                    <h4 class="font-bold text-xs uppercase tracking-widest text-purple-300 mb-4">Akses Navigasi</h4>
+                    <div class="flex flex-col space-y-2 text-xs text-slate-400">
+                        <a href="#alur-pelayanan" class="hover:text-white transition">Alur Pelayanan Pasien</a>
+                        <a href="#sop" class="hover:text-white transition">Prosedur K3RS & Mutu</a>
+                        <a href="#jadwal" class="hover:text-white transition">Jadwal Praktik Spesialis</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-xs uppercase tracking-widest text-purple-300 mb-4">Kontak Operasional</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><i class="fas fa-map-marker-alt mr-2 text-purple-400"></i> Jl. Bintaro Permai Raya No.3, Jakarta Selatan.</li>
+                        <li><i class="fas fa-phone-alt mr-2 text-purple-400"></i> (021) 73885254</li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-slate-800 pt-8 text-center text-slate-500 text-xs">
-                <p>&copy; 2026 RSGMP Universitas Prof. Dr. Moestopo (Beragama). All rights reserved.</p>
+            <div class="border-t border-slate-900 pt-6 text-center text-slate-600 text-xs">
+                <p>&copy; 2026 RSGMP Universitas Prof. Dr. Moestopo (Beragama). Manajemen GA, SDM & K3RS Terintegrasi.</p>
             </div>
         </div>
     </footer>
