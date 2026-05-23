@@ -1,108 +1,60 @@
+</html>
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RSGMP Moestopo - Pelayanan & Pendidikan Medis Modern</title>
+    <title>RSGMP Moestopo - Portal Internal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --purple-main: #514fa1; --purple-light: #f5f3ff; }
-        html { scroll-behavior: smooth; }
-        .bg-purple-moestopo { background-color: var(--purple-main); }
-        .text-purple-moestopo { color: var(--purple-main); }
-        .border-purple-moestopo { border-color: var(--purple-main); }
-        .bg-medical-gradient { background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%); }
-        
-        .whatsapp-float { position: fixed; bottom: 24px; right: 24px; z-index: 100; background-color: #25d366; color: white; padding: 16px; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: all 0.3s ease; }
-        .whatsapp-float:hover { transform: scale(1.1); background-color: #20ba5a; }
-        
-        #back-to-top { position: fixed; bottom: 92px; right: 24px; z-index: 100; background-color: var(--purple-main); color: white; padding: 14px; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: all 0.3s ease; opacity: 0; visibility: hidden; }
-        #back-to-top.show { opacity: 1; visibility: visible; }
-        
-        .dark-premium-mode { background-color: #0f172a !important; color: #f1f5f9 !important; }
-        .dark-premium-mode nav, .dark-premium-mode section, .dark-premium-mode footer { background-color: #1e293b !important; color: #e2e8f0 !important; border-color: #334155 !important; }
-        .dark-premium-mode .bg-white, .dark-premium-mode .bg-slate-50, .dark-premium-mode .faq-item { background-color: #1e293b !important; color: #f1f5f9 !important; border-color: #334155 !important; }
-        .dark-premium-mode h1, .dark-premium-mode h2, .dark-premium-mode h3, .dark-premium-mode h4 { color: #ffffff !important; }
-        
-        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
-        .faq-item.active .faq-content { max-height: 250px; }
-        .faq-item.active .faq-toggle-icon { transform: rotate(180deg); }
+        .sop-card { transition: all 0.3s ease; }
+        .dark-mode { background-color: #0f172a !important; color: #f1f5f9 !important; }
+        .dark-mode .bg-white { background-color: #1e293b !important; color: #f1f5f9 !important; border-color: #334155 !important; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans transition-colors duration-300">
+<body class="bg-slate-50 font-sans transition-colors duration-300">
 
-    <button id="back-to-top" onclick="scrollToTop()" title="Kembali ke Atas"><i class="fas fa-chevron-up"></i></button>
-    <a href="https://api.whatsapp.com/send?phone=6281291563492" target="_blank" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
-
-    <nav class="bg-white shadow-lg fixed w-full z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-24 items-center">
-                <div class="flex items-center space-x-3">
-                    <img src="./logo.png" alt="Logo" class="h-12 w-auto object-contain">
-                    <div>
-                        <span class="font-bold text-lg text-purple-moestopo uppercase">RSGMP MOESTOPO</span>
-                    </div>
-                </div>
-                <div class="hidden lg:flex items-center space-x-4 font-semibold text-sm">
-                    <a href="#beranda">Beranda</a>
-                    <a href="#sop">Manajemen K3</a>
-                    <a href="#jadwal">Jadwal</a>
-                    <button onclick="toggleDarkModePremium()" class="bg-slate-800 text-white px-3 py-2 rounded-lg text-xs"><i class="fas fa-moon"></i> Mode Teduh</button>
-                </div>
-            </div>
+    <nav class="bg-white shadow-sm p-4 sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <span class="font-bold text-purple-700">RSGMP MOESTOPO</span>
+            <button onclick="document.body.classList.toggle('dark-mode')" class="text-xs bg-slate-800 text-white px-3 py-1 rounded-full">Mode Teduh</button>
         </div>
     </nav>
 
-    <section id="sop" class="py-24 bg-slate-100">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl font-black text-center mb-8">Manajemen Mutu & K3RS</h2>
-            
-            <div class="max-w-md mx-auto mb-10">
-                <div class="relative">
-                    <input type="text" id="sop-search-input" onkeyup="filterSopCards()" 
-                           class="w-full rounded-full py-3 px-5 pl-12 border border-slate-300 focus:outline-none focus:ring-2 focus:ring-purple-moestopo" 
-                           placeholder="Cari SOP (Contoh: Limbah, CSSD)...">
-                    <i class="fas fa-search absolute left-4 top-4 text-slate-400"></i>
-                </div>
-            </div>
+    <main class="max-w-4xl mx-auto p-4 py-8">
+        <h1 class="text-2xl font-black text-center mb-6">Manajemen SOP & K3RS</h1>
 
-            <div id="sop-cards-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="sop-card bg-white p-6 rounded-2xl shadow-sm border">
-                    <h3 class="font-bold mb-2">Pengolahan Limbah Medis B3</h3>
-                    <p class="text-xs text-slate-500">SOP penanganan limbah tajam, infeksius, dan amalgam.</p>
-                </div>
-                <div class="sop-card bg-white p-6 rounded-2xl shadow-sm border">
-                    <h3 class="font-bold mb-2">SOP Sterilisasi CSSD</h3>
-                    <p class="text-xs text-slate-500">Alur searah dari area kotor hingga sterilisasi.</p>
-                </div>
-                <div class="sop-card bg-white p-6 rounded-2xl shadow-sm border">
-                    <h3 class="font-bold mb-2">Mitigasi Tanggap Darurat</h3>
-                    <p class="text-xs text-slate-500">Inspeksi periodik APAR dan jalur evakuasi.</p>
-                </div>
+        <div class="mb-8">
+            <input type="text" id="sop-search-input" onkeyup="filterSopCards()" 
+                   class="w-full p-4 rounded-full border border-slate-300 shadow-sm outline-none focus:ring-2 focus:ring-purple-500" 
+                   placeholder="Cari SOP (Contoh: Limbah, CSSD)...">
+        </div>
+
+        <div id="sop-cards-container" class="flex flex-wrap justify-center gap-4">
+            <div class="sop-card bg-white p-6 rounded-2xl border shadow-sm w-full max-w-xs">
+                <h3 class="font-bold">Pengolahan Limbah B3</h3>
+                <p class="text-sm text-slate-500 mt-2">Panduan penanganan limbah medis infeksius.</p>
+            </div>
+            <div class="sop-card bg-white p-6 rounded-2xl border shadow-sm w-full max-w-xs">
+                <h3 class="font-bold">Sterilisasi CSSD</h3>
+                <p class="text-sm text-slate-500 mt-2">Prosedur alur satu arah sterilisasi.</p>
+            </div>
+            <div class="sop-card bg-white p-6 rounded-2xl border shadow-sm w-full max-w-xs">
+                <h3 class="font-bold">Mitigasi Kebakaran</h3>
+                <p class="text-sm text-slate-500 mt-2">Prosedur penggunaan APAR dan evakuasi.</p>
             </div>
         </div>
-    </section>
+    </main>
 
     <script>
         function filterSopCards() {
-            var input = document.getElementById("sop-search-input").value.toLowerCase();
-            var cards = document.getElementsByClassName("sop-card");
-            for (var i = 0; i < cards.length; i++) {
-                var title = cards[i].querySelector("h3").innerText.toLowerCase();
-                var desc = cards[i].querySelector("p").innerText.toLowerCase();
-                cards[i].style.display = (title.includes(input) || desc.includes(input)) ? "" : "none";
+            let input = document.getElementById('sop-search-input').value.toLowerCase();
+            let cards = document.getElementsByClassName('sop-card');
+            for (let card of cards) {
+                card.style.display = card.innerText.toLowerCase().includes(input) ? "" : "none";
             }
         }
-
-        window.onscroll = function() {
-            var topBtn = document.getElementById("back-to-top");
-            topBtn.classList.toggle("show", document.body.scrollTop > 300 || document.documentElement.scrollTop > 300);
-        };
-
-        function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
-        function toggleDarkModePremium() { document.body.classList.toggle("dark-premium-mode"); }
-        function toggleFaq(el) { el.parentElement.classList.toggle("active"); }
     </script>
 </body>
 </html>
