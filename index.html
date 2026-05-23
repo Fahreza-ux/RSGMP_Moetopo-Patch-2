@@ -59,10 +59,10 @@
             background-color: #3f3d82;
         }
 
-        /* PERBAIKAN: Mode Gelap Premium (Teduh, Anti Sakit Mata) */
+        /* Mode Gelap Premium (Teduh, Elegan, Anti Sakit Mata) */
         .dark-premium-mode {
-            background-color: #0f172a !important; /* Slate 900 (Teduh) */
-            color: #f1f5f9 !important; /* Putih abu-abu lembut */
+            background-color: #0f172a !important; /* Slate 900 */
+            color: #f1f5f9 !important;
         }
         .dark-premium-mode nav, 
         .dark-premium-mode section, 
@@ -89,7 +89,7 @@
         .dark-premium-mode a, 
         .dark-premium-mode span,
         .dark-premium-mode .text-purple-moestopo {
-            color: #cbd5e1 !important; /* Meredam warna ungu pekat agar tidak tabrakan */
+            color: #cbd5e1 !important;
         }
         .dark-premium-mode .bg-purple-50 {
             background-color: #334155 !important;
@@ -365,7 +365,7 @@
 
             <div class="text-center mb-8">
                 <h3 class="text-xl font-bold text-slate-800">Tim Dokter Umum Pelayanan Klinis</h3>
-                <p class="text-xs text-slate-500 mt-1">Data sinkron akurat sesuai dengan sistem poster penugasan klinis harian</p>
+                <p class="text-xs text-slate-500 mt-1">Sistem informasi grid data sinkron akurat sesuai berkas penugasan poster resmi</p>
             </div>
             
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -461,6 +461,44 @@
                         <span class="text-[11px] text-slate-600 block mt-1"><i class="far fa-clock mr-1"></i>08:00 - 16:00 WIB</span>
                     </div>
                 </div>
+
+                <div class="bg-white p-3 rounded-2xl shadow-md border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="overflow-hidden rounded-xl">
+                            <img src="./dokter6.jpg" alt="dr. Winita" class="w-full h-auto object-cover" onerror="this.src='dokter6.jpg'; this.onerror=function(){this.src='dokter6.png'}">
+                        </div>
+                        <div class="p-4 text-center">
+                            <h4 class="font-bold text-slate-800 text-sm">dr. Winita</h4>
+                            <p class="text-[11px] text-purple-moestopo font-semibold uppercase tracking-wider mt-0.5">Dokter Umum</p>
+                        </div>
+                    </div>
+                    <div class="bg-purple-50 p-3 rounded-xl border border-purple-100 text-center mt-2">
+                        <span class="text-[10px] uppercase font-bold text-slate-400 block tracking-widest">Hari Praktik</span>
+                        <span class="text-xs font-bold text-purple-moestopo block mt-0.5">Senin & Selasa</span>
+                        <span class="text-[11px] text-slate-600 block mt-1"><i class="far fa-clock mr-1"></i>08:00 - 20:00 WIB</span>
+                        <span class="text-xs font-bold text-purple-moestopo block mt-1">Rabu</span>
+                        <span class="text-[11px] text-slate-600 block mt-1"><i class="far fa-clock mr-1"></i>08:00 - 16:00 WIB</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-3 rounded-2xl shadow-md border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="overflow-hidden rounded-xl">
+                            <img src="./dokter7.jpg" alt="dr. Yossy Melna Aufah" class="w-full h-auto object-cover" onerror="this.src='dokter7.jpg'; this.onerror=function(){this.src='dokter7.png'}">
+                        </div>
+                        <div class="p-4 text-center">
+                            <h4 class="font-bold text-slate-800 text-sm">dr. Yossy Melna Aufah</h4>
+                            <p class="text-[11px] text-purple-moestopo font-semibold uppercase tracking-wider mt-0.5">Dokter Umum</p>
+                        </div>
+                    </div>
+                    <div class="bg-purple-50 p-3 rounded-xl border border-purple-100 text-center mt-2">
+                        <span class="text-[10px] uppercase font-bold text-slate-400 block tracking-widest">Hari Praktik</span>
+                        <span class="text-xs font-bold text-purple-moestopo block mt-0.5">Selasa</span>
+                        <span class="text-[11px] text-slate-600 block mt-1"><i class="far fa-clock mr-1"></i>08:00 - 16:00 WIB</span>
+                        <span class="text-xs font-bold text-purple-moestopo block mt-1">Rabu & Kamis</span>
+                        <span class="text-[11px] text-slate-600 block mt-1"><i class="far fa-clock mr-1"></i>08:00 - 20:00 WIB</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -505,6 +543,8 @@
                             <option>dr. Ratu Raniazahra Jonis (Dokter Umum)</option>
                             <option>dr. Fathul Jannah (Dokter Umum)</option>
                             <option>dr. Andy Hidayat, M.Biomed (Dokter Umum)</option>
+                            <option>dr. Winita (Dokter Umum)</option>
+                            <option>dr. Yossy Melna Aufah (Dokter Umum)</option>
                         </select>
                     </div>
                     <button type="submit" class="w-full bg-purple-moestopo hover:bg-opacity-90 text-white font-bold p-4 rounded-xl text-sm shadow-lg transition flex items-center justify-center gap-2">
@@ -716,7 +756,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // PERBAIKAN UTAMA: Toggle Mode Gelap Premium yang Teduh di Mata
+        // Toggle Mode Gelap Premium yang Teduh di Mata
         function toggleDarkModePremium() {
             document.body.classList.toggle("dark-premium-mode");
         }
