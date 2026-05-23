@@ -18,7 +18,7 @@
         .bg-medical-gradient {
             background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
         }
-        /* Floating WhatsApp Button */
+        /* Floating Elements Position */
         .whatsapp-float {
             position: fixed;
             bottom: 24px;
@@ -35,9 +35,35 @@
             transform: scale(1.1);
             background-color: #20ba5a;
         }
+        #back-to-top {
+            position: fixed;
+            bottom: 92px;
+            right: 24px;
+            z-index: 100;
+            background-color: var(--purple-main);
+            color: white;
+            padding: 14px;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+        #back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        #back-to-top:hover {
+            transform: translateY(-5px);
+            background-color: #3f3d82;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans">
+
+    <button id="back-to-top" onclick="scrollToTop()" title="Kembali ke Atas">
+        <i class="fas fa-chevron-up text-lg block"></i>
+    </button>
 
     <a href="https://api.whatsapp.com/send?phone=6281291563492&text=Halo%20Admin%20RSGMP%20Moestopo,%20saya%20ingin%20tanya%20jadwal%20dan%20pelayanan." 
        target="_blank" class="whatsapp-float flex items-center justify-center text-2xl" title="Hubungi Kami via WhatsApp">
@@ -61,6 +87,7 @@
                     <a href="#sop" class="text-slate-600 hover:text-purple-moestopo transition">Manajemen K3</a>
                     <a href="#layanan" class="text-slate-600 hover:text-purple-moestopo transition">Klinik</a>
                     <a href="#jadwal" class="text-slate-600 hover:text-purple-moestopo transition">Jadwal Dokter</a>
+                    <a href="#pendaftaran" class="text-slate-600 hover:text-purple-moestopo transition">Daftar Online</a>
                     <a href="#fasilitas" class="text-slate-600 hover:text-purple-moestopo transition">Fasilitas</a>
                     <a href="#k3-report" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition flex items-center gap-2">
                         <i class="fas fa-exclamation-triangle"></i> Lapor K3
@@ -81,6 +108,7 @@
             <a href="#sop" onclick="toggleMobileMenu()" class="block text-slate-600 py-2 border-b border-slate-50">Manajemen K3</a>
             <a href="#layanan" onclick="toggleMobileMenu()" class="block text-slate-600 py-2 border-b border-slate-50">Klinik</a>
             <a href="#jadwal" onclick="toggleMobileMenu()" class="block text-slate-600 py-2 border-b border-slate-50">Jadwal Dokter</a>
+            <a href="#pendaftaran" onclick="toggleMobileMenu()" class="block text-slate-600 py-2 border-b border-slate-50">Daftar Online</a>
             <a href="#fasilitas" onclick="toggleMobileMenu()" class="block text-slate-600 py-2 border-b border-slate-50">Fasilitas</a>
             <a href="#k3-report" onclick="toggleMobileMenu()" class="bg-red-500 text-white px-4 py-2.5 rounded-lg text-center block shadow-md">
                 <i class="fas fa-exclamation-triangle mr-2"></i>Lapor K3
@@ -104,8 +132,8 @@
                         Rumah Sakit Gigi dan Mulut Pendidikan Moestopo mengutamakan keselamatan pasien dan tenaga medis melalui implementasi manajemen tata kelola K3RS yang ketat dan akuntabel.
                     </p>
                     <div class="flex flex-wrap gap-3 justify-center md:justify-start">
-                        <a href="#alur-pelayanan" class="bg-purple-moestopo text-white px-5 py-3 rounded-xl font-bold shadow-xl hover:bg-opacity-90 transition flex items-center text-xs md:text-sm">
-                            <i class="fas fa-network-wired mr-2"></i> Alur Pelayanan
+                        <a href="#pendaftaran" class="bg-purple-moestopo text-white px-5 py-3 rounded-xl font-bold shadow-xl hover:bg-opacity-90 transition flex items-center text-xs md:text-sm">
+                            <i class="fas fa-calendar-check mr-2"></i> Pendaftaran Online
                         </a>
                         <a href="#jadwal" class="bg-white text-purple-moestopo border-2 border-purple-moestopo px-5 py-3 rounded-xl font-bold hover:bg-purple-50 transition text-xs md:text-sm">
                             Lihat Jadwal Dokter
@@ -362,26 +390,75 @@
         </div>
     </section>
 
-    <section id="fasilitas" class="py-20 bg-white">
+    <section id="pendaftaran" class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-black text-slate-900 mb-2">Pendaftaran Pasien Online</h2>
+                <div class="w-20 h-1.5 bg-purple-moestopo mx-auto rounded-full mb-4"></div>
+                <p class="text-sm text-slate-500">Isi data di bawah untuk membuat janji temu otomatis via WhatsApp Resmi</p>
+            </div>
+            
+            <div class="bg-purple-light p-6 md:p-10 rounded-3xl border border-purple-100 shadow-sm">
+                <form id="form-wa-booking" class="space-y-5" onsubmit="handleFormPendaftaran(event)">
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Nama Lengkap Pasien</label>
+                        <input type="text" id="pasien-name" required class="w-full bg-white text-slate-800 rounded-xl p-3.5 text-sm border border-slate-200 focus:outline-none focus:border-purple-moestopo shadow-inner" placeholder="Contoh: Muhammad Reza">
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Tanggal Lahir</label>
+                            <input type="date" id="pasien-dob" required class="w-full bg-white text-slate-800 rounded-xl p-3.5 text-sm border border-slate-200 focus:outline-none focus:border-purple-moestopo shadow-inner">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Hari Kunjungan Klinik</label>
+                            <select id="visit-day" required class="w-full bg-white text-slate-800 rounded-xl p-3.5 text-sm border border-slate-200 focus:outline-none focus:border-purple-moestopo shadow-inner">
+                                <option>Senin</option>
+                                <option>Selasa</option>
+                                <option>Rabu</option>
+                                <option>Kamis</option>
+                                <option>Jumat</option>
+                                <option>Sabtu</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Pilih Dokter Tujuan</label>
+                        <select id="chosen-doctor" class="w-full bg-white text-slate-800 rounded-xl p-3.5 text-sm border border-slate-200 focus:outline-none focus:border-purple-moestopo shadow-inner">
+                            <option>dr. Muhammad Fairuzaki (Dokter Umum)</option>
+                            <option>dr. Alyka Sheila Masah (Dokter Umum)</option>
+                            <option>dr. Ratu Raniazahra Jonis (Dokter Umum)</option>
+                            <option>dr. Fathul Jannah (Dokter Umum)</option>
+                            <option>dr. Andy Hidayat, M.Biomed (Dokter Umum)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full bg-purple-moestopo hover:bg-opacity-90 text-white font-bold p-4 rounded-xl text-sm shadow-lg transition flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp text-lg"></i> Kirim Pendaftaran via WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="fasilitas" class="py-20 bg-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-black text-slate-900 mb-2">Fasilitas Utama Penunjang</h2>
                 <div class="w-20 h-1.5 bg-purple-moestopo mx-auto rounded-full"></div>
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-slate-50 rounded-2xl border border-slate-100 p-6">
+                <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
                     <div class="flex items-center gap-3 mb-3 text-purple-moestopo font-bold text-lg">
                         <i class="fas fa-radiation"></i> <h4>Radiologi Kedokteran Gigi</h4>
                     </div>
                     <p class="text-xs text-slate-600 leading-relaxed">Fasilitas diagnostik mutakhir yang dilengkapi dengan X-Ray Periapikal digital, Panoramik, Sefalometri, serta CBCT 3D untuk visualisasi struktur maksilofasial yang presisi.</p>
                 </div>
-                <div class="bg-slate-50 rounded-2xl border border-slate-100 p-6">
+                <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
                     <div class="flex items-center gap-3 mb-3 text-purple-moestopo font-bold text-lg">
                         <i class="fas fa-laptop-medical"></i> <h4>Dental Simulator Lab</h4>
                     </div>
                     <p class="text-xs text-slate-600 leading-relaxed">Fasilitas laboratorium preklinik canggih bagi mahasiswa kedokteran gigi untuk mengasah kemampuan taktil psikomotorik sebelum menangani pasien nyata di klinik integrasi.</p>
                 </div>
-                <div class="bg-slate-50 rounded-2xl border border-slate-100 p-6">
+                <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
                     <div class="flex items-center gap-3 mb-3 text-purple-moestopo font-bold text-lg">
                         <i class="fas fa-hospital-user"></i> <h4>Instalasi Gawat Darurat (IGD)</h4>
                     </div>
@@ -391,21 +468,21 @@
         </div>
     </section>
 
-    <section id="k3-report" class="py-20 bg-slate-100">
+    <section id="k3-report" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 items-stretch">
                 
-                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                <div class="bg-purple-light p-8 rounded-2xl border border-purple-100 flex flex-col justify-between shadow-inner">
                     <div>
                         <h2 class="text-2xl font-black mb-4 text-purple-moestopo"><i class="fas fa-exclamation-triangle mr-2 text-red-500"></i>Form Pelaporan K3RS & Saran</h2>
                         <form class="space-y-4" onsubmit="alert('Laporan berhasil dikirim ke unit K3RS & GA.'); return false;">
                             <div>
                                 <label class="block text-xs font-semibold uppercase mb-1 text-slate-600">Nama Pelapor</label>
-                                <input type="text" class="w-full bg-slate-50 text-slate-800 rounded-lg p-3 text-sm border border-slate-300 focus:outline-none focus:border-purple-moestopo" placeholder="Contoh: Staf GA / Umum">
+                                <input type="text" class="w-full bg-white text-slate-800 rounded-lg p-3 text-sm border border-slate-200 focus:outline-none focus:border-purple-moestopo" placeholder="Contoh: Staf GA / Umum">
                             </div>
                             <div>
                                 <label class="block text-xs font-semibold uppercase mb-1 text-slate-600">Kategori Temuan</label>
-                                <select class="w-full bg-slate-50 text-slate-800 rounded-lg p-3 text-sm border border-slate-300 focus:outline-none focus:border-purple-moestopo">
+                                <select class="w-full bg-white text-slate-800 rounded-lg p-3 text-sm border border-slate-200 focus:outline-none focus:border-purple-moestopo">
                                     <option>Potensi Bahaya Fisik/Fasilitas</option>
                                     <option>Kerusakan Instrumen Sterilisasi</option>
                                     <option>Saran Perbaikan Mutu Pelayanan</option>
@@ -413,7 +490,7 @@
                             </div>
                             <div>
                                 <label class="block text-xs font-semibold uppercase mb-1 text-slate-600">Deskripsi Detail</label>
-                                <textarea rows="3" class="w-full bg-slate-50 text-slate-800 rounded-lg p-3 text-sm border border-slate-300 focus:outline-none focus:border-purple-moestopo" placeholder="Tulis rincian di sini..."></textarea>
+                                <textarea rows="3" class="w-full bg-white text-slate-800 rounded-lg p-3 text-sm border border-slate-200 focus:outline-none focus:border-purple-moestopo" placeholder="Tulis rincian di sini..."></textarea>
                             </div>
                             <button type="submit" class="w-full bg-purple-moestopo hover:bg-opacity-90 text-white font-bold p-3 rounded-lg text-sm shadow-md transition">
                                 Kirim Laporan Resmi
@@ -439,7 +516,7 @@
                         </div>
                     </div>
                     
-                    <a href="https://www.google.com/maps/search/?api=1&query=RSGMP+Prof.+Dr.+Moestopo+Bintaro" 
+                    <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m4!2s0x2e69f067425f1903%3A0x6bfe76e2716a5db8!2sRSGMP%20Prof.%20Dr.%20Moestopo!5m2!1sid!2sid0" 
                        target="_blank" 
                        rel="noopener noreferrer"
                        class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold p-4 rounded-xl text-center shadow-lg transition flex items-center justify-center gap-2 mt-4">
@@ -484,6 +561,7 @@
     </footer>
 
     <script>
+        // Hamburger Mobile Menu Logic
         function toggleMobileMenu() {
             var menu = document.getElementById("mobile-menu");
             var icon = document.getElementById("menu-icon");
@@ -496,6 +574,45 @@
                 icon.classList.remove("fa-times");
                 icon.classList.add("fa-bars");
             }
+        }
+
+        // Ide Nomor 5: Back to Top Scroll Monitoring
+        window.onscroll = function() { checkScrollDistance() };
+        
+        function checkScrollDistance() {
+            var topBtn = document.getElementById("back-to-top");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                topBtn.classList.add("show");
+            } else {
+                topBtn.classList.remove("show");
+            }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Ide Nomor 3: Whatsapp Booking Engine Parser
+        function handleFormPendaftaran(event) {
+            event.preventDefault();
+            
+            var name = document.getElementById("pasien-name").value;
+            var dob = document.getElementById("pasien-dob").value;
+            var day = document.getElementById("visit-day").value;
+            var doctor = document.getElementById("chosen-doctor").value;
+            
+            // Susun template teks rapi otomatis
+            var baseText = "Halo Admin RSGMP Moestopo, saya ingin mendaftar layanan kunjungan klinis.%0A%0A" +
+                           "*Data Pasien:*%0A" +
+                           "- Nama: " + name + "%0A" +
+                           "- Tanggal Lahir: " + dob + "%0A%0A" +
+                           "*Rencana Kunjungan:*%0A" +
+                           "- Hari: " + day + "%0A" +
+                           "- Dokter Tujuan: " + doctor;
+            
+            // Tembak WhatsApp API
+            var whatsappUrl = "https://api.whatsapp.com/send?phone=6281291563492&text=" + baseText;
+            window.open(whatsappUrl, '_blank');
         }
     </script>
 </body>
