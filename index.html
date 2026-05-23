@@ -18,7 +18,6 @@
         .bg-medical-gradient {
             background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
         }
-        /* Floating WhatsApp Button */
         .whatsapp-float {
             position: fixed;
             bottom: 24px;
@@ -116,9 +115,7 @@
                 <div class="relative w-full flex justify-center items-center px-2 md:px-0">
                     <div class="absolute inset-0 bg-purple-moestopo opacity-10 rounded-full blur-3xl transform scale-75"></div>
                     <div class="w-full max-w-md bg-white p-2 rounded-2xl shadow-2xl border border-purple-100 overflow-hidden">
-                        <img id="banner-hero" src="./logo2.jpg" alt="Banner Informasi RSGMP Moestopo" 
-                             class="w-full h-auto rounded-xl object-contain block" style="min-height: 150px;"
-                             onerror="this.src='logo2.jpg'; this.onerror=function(){this.src='logo2.png'}">
+                        <img id="banner-hero" src="./logo2.jpg" alt="Banner Informasi RSGMP Moestopo" class="w-full h-auto rounded-xl object-contain block" onerror="this.src='logo2.jpg'; this.onerror=function(){this.src='logo2.png'}">
                     </div>
                 </div>
 
@@ -356,19 +353,27 @@
                     </div>
                 </div>
 
-                <div class="w-full bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-col min-h-[350px]">
-                    <h3 class="text-sm font-bold text-purple-moestopo mb-3 uppercase tracking-wider"><i class="fas fa-map-marked-alt mr-2 text-red-500"></i> Lokasi Google Maps Resmi</h3>
-                    <div class="flex-grow rounded-xl overflow-hidden shadow-sm border border-slate-200 h-full">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m4!2s0x2e69f067425f1903%3A0x6bfe76e2716a5db8!2sRSGMP%20Prof.%20Dr.%20Moestopo!5m2!1sid!2sid" 
-                            width="100%" 
-                            height="100%" 
-                            style="border:0; min-height: 280px;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
+                <div class="w-full bg-white p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between min-h-[350px]">
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3 text-purple-moestopo">
+                            <i class="fas fa-map-marked-alt text-3xl text-red-500"></i>
+                            <h3 class="text-xl font-black uppercase tracking-tight">Lokasi Resmi Rumah Sakit</h3>
+                        </div>
+                        <div class="w-16 h-1 bg-purple-moestopo rounded-full"></div>
+                        <p class="text-sm font-bold text-slate-800">RSGMP Universitas Prof. Dr. Moestopo (Beragama)</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            <i class="fas fa-map-marker-alt text-purple-moestopo mr-2"></i>Jl. Bintaro Permai Raya No.3, RT.6/RW.1, Pesanggrahan, Kec. Pesanggrahan, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12320.
+                        </p>
+                        <div class="bg-purple-50 p-4 rounded-xl border border-purple-100 text-xs text-slate-600">
+                            <span class="font-bold text-purple-moestopo block mb-1"><i class="fas fa-info-circle mr-1"></i> Informasi Akses Mudah:</span>
+                            Klik tombol navigasi di bawah ini untuk langsung membuka rute jalan GPS tercepat melalui aplikasi Google Maps di Handphone Anda.
+                        </div>
                     </div>
+                    <a href="https://maps.app.goo.gl/9ZpCbyBfT8YmXgGZ7" 
+                       target="_blank" 
+                       class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold p-4 rounded-xl text-center shadow-lg transition flex items-center justify-center gap-2 mt-4">
+                        <i class="fas fa-location-arrow animate-bounce"></i> Buka Rute Jalan di Google Maps Staf/Pasien
+                    </a>
                 </div>
 
             </div>
@@ -402,7 +407,7 @@
                 </div>
             </div>
             <div class="border-t border-slate-900 pt-6 text-center text-slate-600 text-xs">
-                <p>&copy; 2026 RSGMP Universitas Prof. Dr. Moestopo (Beragama). | Divisi Umum, SDM & K3RS Terintegrasi.</p>
+                <p>© 2026 RSGMP Universitas Prof. Dr. Moestopo (Beragama). | Divisi Umum, SDM & K3RS Terintegrasi.</p>
             </div>
         </div>
     </footer>
