@@ -61,20 +61,22 @@
 
         /* Mode Gelap Premium (Teduh, Elegan, Anti Sakit Mata) */
         .dark-premium-mode {
-            background-color: #0f172a !important; /* Slate 900 */
+            background-color: #0f172a !important;
             color: #f1f5f9 !important;
         }
         .dark-premium-mode nav, 
         .dark-premium-mode section, 
         .dark-premium-mode footer {
-            background-color: #1e293b !important; /* Slate 800 */
+            background-color: #1e293b !important;
             color: #e2e8f0 !important;
             border-color: #334155 !important;
         }
         .dark-premium-mode div.bg-white, 
         .dark-premium-mode div.bg-slate-50, 
         .dark-premium-mode div.bg-purple-light,
-        .dark-premium-mode tr.hover\:bg-slate-50:hover {
+        .dark-premium-mode tr.hover\:bg-slate-50:hover,
+        .dark-premium-mode .faq-item,
+        .dark-premium-mode .sop-card {
             background-color: #1e293b !important;
             color: #f1f5f9 !important;
             border-color: #334155 !important;
@@ -252,30 +254,38 @@
 
     <section id="sop" class="py-20 bg-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-8">
                 <h2 class="text-3xl font-black text-slate-900 mb-2">Manajemen Mutu & K3RS</h2>
-                <div class="w-20 h-1.5 bg-purple-moestopo mx-auto rounded-full"></div>
+                <div class="w-20 h-1.5 bg-purple-moestopo mx-auto rounded-full mb-4"></div>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-6 rounded-2xl bg-white border border-slate-100 hover:shadow-xl transition group">
+
+            <div class="max-w-md mx-auto mb-10">
+                <div class="relative">
+                    <input type="text" id="sop-search-input" onkeyup="filterSopCards()" class="w-full bg-white text-slate-800 rounded-xl p-3.5 pl-11 text-sm border border-slate-200 focus:outline-none focus:border-purple-moestopo shadow-sm" placeholder="Cari SOP cepat (cth: Limbah, CSSD, Jarum)...">
+                    <i class="fas fa-search absolute left-4 top-4.5 text-slate-400"></i>
+                </div>
+            </div>
+
+            <div id="sop-cards-container" class="grid md:grid-cols-3 gap-8">
+                <div class="sop-card p-6 rounded-2xl bg-white border border-slate-100 hover:shadow-xl transition group">
                     <div class="w-12 h-12 bg-purple-moestopo text-white rounded-xl flex items-center justify-center text-2xl mb-4 shadow-md">
                         <i class="fas fa-biohazard"></i>
                     </div>
                     <h3 class="text-lg font-bold text-slate-800 mb-2">Pengolahan Limbah Medis B3</h3>
                     <p class="text-slate-600 text-xs leading-relaxed">SOP penanganan limbah tajam, infeksius, dan amalgam secara terpisah demi kepatuhan tinggi terhadap regulasi lingkungan.</p>
                 </div>
-                <div class="p-6 rounded-2xl bg-purple-moestopo text-white shadow-xl transform scale-105 transition-all">
+                <div class="sop-card p-6 rounded-2xl bg-purple-moestopo text-white shadow-xl transform scale-105 transition-all">
                     <div class="w-12 h-12 bg-white text-purple-moestopo rounded-xl flex items-center justify-center text-2xl mb-4 shadow-md">
                         <i class="fas fa-shield-virus"></i>
                     </div>
                     <h3 class="text-lg font-bold mb-2">SOP Sterilisasi CSSD</h3>
                     <p class="opacity-90 text-xs leading-relaxed">Pemberlakuan alur searah (One-Way Workflow) dari area kotor, pencucian, hingga sterilisasi menggunakan autoklaf uap medis.</p>
                 </div>
-                <div class="p-6 rounded-2xl bg-white border border-slate-100 hover:shadow-xl transition group">
+                <div class="sop-card p-6 rounded-2xl bg-white border border-slate-100 hover:shadow-xl transition group">
                     <div class="w-12 h-12 bg-purple-moestopo text-white rounded-xl flex items-center justify-center text-2xl mb-4 shadow-md">
                         <i class="fas fa-fire-extinguisher"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-800 mb-2">Mitigasi Tanggap Darurat</h3>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">Mitigasi Tanggap Darurat Kebakaran</h3>
                     <p class="text-slate-600 text-xs leading-relaxed">Inspeksi periodik sistem proteksi kebakaran aktif (APAR, Hydrant) dan simulasi jalur evakuasi gempa.</p>
                 </div>
             </div>
@@ -365,7 +375,7 @@
 
             <div class="text-center mb-8">
                 <h3 class="text-xl font-bold text-slate-800">Tim Dokter Umum Pelayanan Klinis</h3>
-                <p class="text-xs text-slate-500 mt-1">Sistem informasi grid data sinkron akurat sesuai berkas penugasan poster resmi</p>
+                <p class="text-xs text-slate-500 mt-1">Data sinkron akurat sesuai berkas penugasan poster resmi</p>
             </div>
             
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -611,10 +621,29 @@
 
     <section id="fasilitas" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-8">
                 <h2 class="text-3xl font-black text-slate-900 mb-2">Fasilitas Utama Penunjang</h2>
                 <div class="w-20 h-1.5 bg-purple-moestopo mx-auto rounded-full"></div>
             </div>
+
+            <div class="max-w-4xl mx-auto mb-12 bg-slate-50 border border-slate-200 rounded-2xl p-4 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center text-xs font-bold">
+                <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm flex items-center justify-center gap-2">
+                    <span class="h-2.5 w-2.5 rounded-full bg-emerald-500 block"></span>
+                    <span class="text-slate-600 uppercase tracking-wider text-[10px]">Autoclave CSSD:</span>
+                    <span class="text-emerald-600">NORMAL</span>
+                </div>
+                <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm flex items-center justify-center gap-2">
+                    <span class="h-2.5 w-2.5 rounded-full bg-emerald-500 block"></span>
+                    <span class="text-slate-600 uppercase tracking-wider text-[10px]">Proteksi Damkar:</span>
+                    <span class="text-emerald-600">AMAN</span>
+                </div>
+                <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm flex items-center justify-center gap-2">
+                    <span class="h-2.5 w-2.5 rounded-full bg-emerald-500 block"></span>
+                    <span class="text-slate-600 uppercase tracking-wider text-[10px]">Genset Darurat:</span>
+                    <span class="text-emerald-600">SIAP</span>
+                </div>
+            </div>
+
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="bg-slate-50 rounded-2xl border border-slate-100 p-6">
                     <div class="flex items-center gap-3 mb-3 text-purple-moestopo font-bold text-lg">
@@ -645,25 +674,26 @@
                 <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
                     <div>
                         <h2 class="text-2xl font-black mb-4 text-purple-moestopo"><i class="fas fa-exclamation-triangle mr-2 text-red-500"></i>Form Pelaporan K3RS & Saran</h2>
-                        <form class="space-y-4" onsubmit="alert('Laporan berhasil dikirim ke unit K3RS & GA.'); return false;">
+                        <form class="space-y-4" onsubmit="handleFormPelaporanK3(event)">
                             <div>
-                                <label class="block text-xs font-semibold uppercase mb-1 text-slate-600">Nama Pelapor</label>
-                                <input type="text" class="w-full bg-slate-50 text-slate-800 rounded-lg p-3 text-sm border border-slate-300 focus:outline-none focus:border-purple-moestopo" placeholder="Contoh: Staf GA / Umum">
+                                <label class="block text-xs font-semibold uppercase mb-1 text-slate-600">Nama Pelapor / Unit Kerja</label>
+                                <input type="text" id="k3-reporter" required class="w-full bg-slate-50 text-slate-800 rounded-lg p-3 text-sm border border-slate-300 focus:outline-none focus:border-purple-moestopo" placeholder="Contoh: Staf GA / Dokter Muda Klinik A">
                             </div>
                             <div>
                                 <label class="block text-xs font-semibold uppercase mb-1 text-slate-600">Kategori Temuan</label>
-                                <select class="w-full bg-slate-50 text-slate-800 rounded-lg p-3 text-sm border border-slate-300 focus:outline-none focus:border-purple-moestopo">
-                                    <option>Potensi Bahaya Fisik/Fasilitas</option>
-                                    <option>Kerusakan Instrumen Sterilisasi</option>
+                                <select id="k3-category" class="w-full bg-slate-50 text-slate-800 rounded-lg p-3 text-sm border border-slate-300 focus:outline-none focus:border-purple-moestopo">
+                                    <option>Potensi Bahaya Fisik / Fasilitas Rusak</option>
+                                    <option>Kerusakan Instrumen Sterilisasi (CSSD)</option>
+                                    <option>Insiden Paparan Medis (Needle Stick Injury)</option>
                                     <option>Saran Perbaikan Mutu Pelayanan</option>
                                 </select>
                             </div>
                             <div>
-                                <label class="block text-xs font-semibold uppercase mb-1 text-slate-600">Deskripsi Detail</label>
-                                <textarea rows="3" class="w-full bg-slate-50 text-slate-800 rounded-lg p-3 text-sm border border-slate-300 focus:outline-none focus:border-purple-moestopo" placeholder="Tulis rincian di sini..."></textarea>
+                                <label class="block text-xs font-semibold uppercase mb-1 text-slate-600">Deskripsi Temuan Lapangan</label>
+                                <textarea id="k3-description" rows="3" required class="w-full bg-slate-50 text-slate-800 rounded-lg p-3 text-sm border border-slate-300 focus:outline-none focus:border-purple-moestopo" placeholder="Tulis rincian lokasi kejadian dan detail masalah secara lengkap..."></textarea>
                             </div>
-                            <button type="submit" class="w-full bg-purple-moestopo hover:bg-opacity-90 text-white font-bold p-3 rounded-lg text-sm shadow-md transition">
-                                Kirim Laporan Resmi
+                            <button type="submit" class="w-full bg-red-500 hover:bg-red-600 text-white font-bold p-3 rounded-lg text-sm shadow-md transition flex items-center justify-center gap-2">
+                                <i class="fas fa-paper-plane"></i> Kirim Laporan via WhatsApp Internal
                             </button>
                         </form>
                     </div>
@@ -731,7 +761,7 @@
     </footer>
 
     <script>
-        // IDE NOMOR 3: Kunci validasi input Tanggal Lahir agar tidak bisa memilih masa depan (Maksimal hari ini)
+        // Validasi input Tanggal Lahir otomatis (Maksimal hari ini)
         document.addEventListener("DOMContentLoaded", function() {
             var today = new Date().toISOString().split('T')[0];
             document.getElementById("pasien-dob").setAttribute('max', today);
@@ -779,6 +809,23 @@
             faqItem.classList.toggle("active");
         }
 
+        // Ide 1: Filter Real-Time Live Search untuk Kartu SOP K3RS
+        function filterSopCards() {
+            var input = document.getElementById("sop-search-input").value.toLowerCase();
+            var cards = document.getElementsByClassName("sop-card");
+            
+            for (var i = 0; i < cards.length; i++) {
+                var title = cards[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
+                var description = cards[i].getElementsByTagName("p")[0].innerText.toLowerCase();
+                
+                if (title.includes(input) || description.includes(input)) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+
         // Whatsapp Booking Engine Parser
         function handleFormPendaftaran(event) {
             event.preventDefault();
@@ -795,6 +842,26 @@
                            "*Rencana Kunjungan:*%0A" +
                            "- Hari: " + day + "%0A" +
                            "- Dokter Tujuan: " + doctor;
+            
+            var whatsappUrl = "https://api.whatsapp.com/send?phone=6281291563492&text=" + baseText;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Ide 2: Generator Format Teks Pengiriman Laporan K3 ke WhatsApp Internal
+        function handleFormPelaporanK3(event) {
+            event.preventDefault();
+            
+            var reporter = document.getElementById("k3-reporter").value;
+            var category = document.getElementById("k3-category").value;
+            var description = document.getElementById("k3-description").value;
+            
+            var baseText = "🚨 *LAPORAN TEMUAN K3RS & OPERASIONAL* 🚨%0A%0A" +
+                           "*Data Pelapor:*%0A" +
+                           "- Nama / Unit: " + reporter + "%0A%0A" +
+                           "*Detail Temuan:*%0A" +
+                           "- Kategori: " + category + "%0A" +
+                           "- Rincian Masalah: " + description + "%0A%0A" +
+                           "Mohon tim Umum / GA & K3RS terkait segera melakukan pengecekan ke lokasi.";
             
             var whatsappUrl = "https://api.whatsapp.com/send?phone=6281291563492&text=" + baseText;
             window.open(whatsappUrl, '_blank');
