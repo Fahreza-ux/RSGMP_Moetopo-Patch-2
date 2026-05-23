@@ -547,6 +547,12 @@
                             <option>dr. Yossy Melna Aufah (Dokter Umum)</option>
                         </select>
                     </div>
+                    
+                    <div class="p-3 bg-purple-50 rounded-xl border border-purple-100 text-[11px] text-slate-500 flex gap-2 items-start leading-relaxed">
+                        <i class="fas fa-shield-alt text-purple-moestopo text-sm mt-0.5"></i>
+                        <p><strong>Pernyataan Privasi Data:</strong> Dengan mengirimkan formulir janji temu ini, Anda setuju bahwa data pribadi Anda dienkripsi secara aman melalui protokol <em>WhatsApp End-to-End Encryption</em> dan hanya digunakan untuk keperluan konfirmasi antrean klinik internal oleh RSGMP Moestopo.</p>
+                    </div>
+
                     <button type="submit" class="w-full bg-purple-moestopo hover:bg-opacity-90 text-white font-bold p-4 rounded-xl text-sm shadow-lg transition flex items-center justify-center gap-2">
                         <i class="fab fa-whatsapp text-lg"></i> Kirim Pendaftaran via WhatsApp
                     </button>
@@ -725,6 +731,12 @@
     </footer>
 
     <script>
+        // IDE NOMOR 3: Kunci validasi input Tanggal Lahir agar tidak bisa memilih masa depan (Maksimal hari ini)
+        document.addEventListener("DOMContentLoaded", function() {
+            var today = new Date().toISOString().split('T')[0];
+            document.getElementById("pasien-dob").setAttribute('max', today);
+        });
+
         // Hamburger Mobile Menu Logic
         function toggleMobileMenu() {
             var menu = document.getElementById("mobile-menu");
