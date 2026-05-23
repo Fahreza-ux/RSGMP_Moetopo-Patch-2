@@ -26,7 +26,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-24 items-center">
                 <div class="flex items-center space-x-3">
-                    <img src="./logo.png" alt="Logo Resmi RSGMP Moestopo" class="h-16 w-auto object-contain" onerror="this.src='logo.png'">
+                    <img src="./logo.png" alt="Logo Resmi RSGMP Moestopo" class="h-16 w-auto object-contain" onerror="this.src='logo.png'; this.onerror=function(){this.src='logo.jpg'}">
                     <div>
                         <span class="font-bold text-base md:text-xl tracking-tight block text-purple-moestopo uppercase">RSGMP MOESTOPO</span>
                         <span class="text-[10px] md:text-xs text-slate-500 block font-medium">Univ. Prof. Dr. Moestopo (Beragama)</span>
@@ -37,7 +37,7 @@
                     <a href="#beranda" class="text-slate-600 hover:text-purple-moestopo transition">Beranda</a>
                     <a href="#alur-pelayanan" class="text-slate-600 hover:text-purple-moestopo transition">Alur Pasien</a>
                     <a href="#sop" class="text-slate-600 hover:text-purple-moestopo transition">Manajemen K3</a>
-                    <a href="#layanan" class="text-slate-600 hover:text-purple-moestopo transition">Layanan</a>
+                    <a href="#layanan" class="text-slate-600 hover:text-purple-moestopo transition">Klinik</a>
                     <a href="#jadwal" class="text-slate-600 hover:text-purple-moestopo transition">Jadwal Dokter</a>
                     <a href="#fasilitas" class="text-slate-600 hover:text-purple-moestopo transition">Fasilitas</a>
                     <a href="#k3-report" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition flex items-center gap-2">
@@ -57,7 +57,7 @@
             <a href="#beranda" onclick="toggleMobileMenu()" class="block text-slate-600 py-2 border-b border-slate-50">Beranda</a>
             <a href="#alur-pelayanan" onclick="toggleMobileMenu()" class="block text-slate-600 py-2 border-b border-slate-50">Alur Pasien</a>
             <a href="#sop" onclick="toggleMobileMenu()" class="block text-slate-600 py-2 border-b border-slate-50">Manajemen K3</a>
-            <a href="#layanan" onclick="toggleMobileMenu()" class="block text-slate-600 py-2 border-b border-slate-50">Layanan</a>
+            <a href="#layanan" onclick="toggleMobileMenu()" class="block text-slate-600 py-2 border-b border-slate-50">Klinik</a>
             <a href="#jadwal" onclick="toggleMobileMenu()" class="block text-slate-600 py-2 border-b border-slate-50">Jadwal Dokter</a>
             <a href="#fasilitas" onclick="toggleMobileMenu()" class="block text-slate-600 py-2 border-b border-slate-50">Fasilitas</a>
             <a href="#k3-report" onclick="toggleMobileMenu()" class="bg-red-500 text-white px-4 py-2.5 rounded-lg text-center block shadow-md">
@@ -73,7 +73,7 @@
                 <div class="space-y-6 text-center md:text-left">
                     <div class="inline-flex items-center space-x-2 bg-white border border-purple-200 text-purple-700 px-4 py-1.5 rounded-full text-xs font-bold shadow-sm mx-auto md:mx-0">
                         <span class="flex h-2 w-2 rounded-full bg-green-500 animate-ping"></span>
-                        <span>Laporan Operasional & K3 Umum Terintegrasi</span>
+                        <span>Laporan Operasional & K3 Umum Terintegrated</span>
                     </div>
                     <h1 class="text-3xl md:text-5xl font-black text-slate-900 leading-tight">
                         Pelayanan Prima, Pendidikan Unggul, <span class="text-purple-moestopo">SOP Terjaga.</span>
@@ -95,8 +95,8 @@
                     <div class="absolute inset-0 bg-purple-moestopo opacity-10 rounded-full blur-3xl transform scale-75"></div>
                     <div class="w-full max-w-md bg-white p-2 rounded-2xl shadow-2xl border border-purple-100 overflow-hidden">
                         <img id="banner-hero" src="./logo2.png" alt="Banner Informasi RSGMP Moestopo" 
-                             class="w-full h-auto rounded-xl object-contain block"
-                             onerror="this.src='logo2.png'; this.onerror=function(){this.src='https://via.placeholder.com/400x200?text=Banner+RSGMP+Moestopo'}">
+                             class="w-full h-auto rounded-xl object-contain block" style="min-height: 150px;"
+                             onerror="this.src='logo2.png'; this.onerror=function(){this.src='./logo2.jpg'; this.onerror=function(){this.src='logo2.jpg'; this.onerror=function(){this.src='https://via.placeholder.com/400x200?text=Banner+RSGMP+Moestopo'}}}}">
                     </div>
                 </div>
 
@@ -141,6 +141,7 @@
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-black text-slate-900 mb-2">Manajemen Mutu & K3RS</h2>
                 <div class="w-20 h-1.5 bg-purple-moestopo mx-auto rounded-full"></div>
+                <p class="text-slate-500 mt-4 text-sm">Menjamin Keselamatan Lingkungan Kerja dan Fasilitas Kesehatan</p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="p-6 rounded-2xl bg-white border border-slate-100 hover:shadow-xl transition group">
@@ -159,4 +160,206 @@
                 </div>
                 <div class="p-6 rounded-2xl bg-white border border-slate-100 hover:shadow-xl transition group">
                     <div class="w-12 h-12 bg-purple-moestopo text-white rounded-xl flex items-center justify-center text-2xl mb-4 shadow-md">
-                        <i class="fas fa-fire-extinguisher
+                        <i class="fas fa-fire-extinguisher"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">Mitigasi Tanggap Darurat</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Inspeksi periodik sistem proteksi kebakaran aktif (APAR, Hydrant) dan simulasi jalur evakuasi gempa/kebakaran bagi seluruh civitas hospitalia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="layanan" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-black text-slate-900 mb-2">Klinik Integrasi & Spesialis</h2>
+                <div class="w-20 h-1.5 bg-purple-moestopo mx-auto rounded-full"></div>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-slate-50 p-6 rounded-xl text-center border border-slate-100">
+                    <div class="w-12 h-12 bg-purple-100 text-purple-moestopo rounded-full flex items-center justify-center text-xl mx-auto mb-3">
+                        <i class="fas fa-tooth"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-800 text-sm mb-1">Konservasi Gigi</h4>
+                    <p class="text-slate-500 text-xs">Perawatan saluran akar komprehensif, restorasi estetik komplek.</p>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-xl text-center border border-slate-100">
+                    <div class="w-12 h-12 bg-purple-100 text-purple-moestopo rounded-full flex items-center justify-center text-xl mx-auto mb-3">
+                        <i class="fas fa-grip-lines-vertical"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-800 text-sm mb-1">Ortodonti</h4>
+                    <p class="text-slate-500 text-xs">Koreksi maloklusi interseptif maupun cekat estetik dewasa.</p>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-xl text-center border border-slate-100">
+                    <div class="w-12 h-12 bg-purple-100 text-purple-moestopo rounded-full flex items-center justify-center text-xl mx-auto mb-3">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-800 text-sm mb-1">Kedokteran Gigi Anak</h4>
+                    <p class="text-slate-500 text-xs">Manajemen perilaku preventif dan kuratif ramah anak.</p>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-xl text-center border border-slate-100">
+                    <div class="w-12 h-12 bg-purple-100 text-purple-moestopo rounded-full flex items-center justify-center text-xl mx-auto mb-3">
+                        <i class="fas fa-crutch"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-800 text-sm mb-1">Bedah Mulut</h4>
+                    <p class="text-slate-500 text-xs">Odontektomi gigi impaksi, implan gigi, biopsi lesi rongga mulut.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="jadwal" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-black text-slate-900 mb-2">Jadwal Praktik & Informasi Dokter</h2>
+                <div class="w-20 h-1.5 bg-purple-moestopo mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-slate-200 mb-16">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-sm">
+                        <thead>
+                            <tr class="bg-purple-moestopo text-white font-bold">
+                                <th class="p-4">Klinik Spesialis</th>
+                                <th class="p-4">Senin - Rabu</th>
+                                <th class="p-4">Kamis - Jumat</th>
+                                <th class="p-4">Sabtu</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 text-slate-700">
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-4 font-semibold">Spesialis Ortodonti (Orthodontics)</td>
+                                <td class="p-4">09:00 - 15:00 WIB</td>
+                                <td class="p-4">09:00 - 15:00 WIB</td>
+                                <td class="p-4 text-red-500 font-medium">Perjanjian Khusus</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-4 font-semibold">Spesialis Bedah Mulut & Maksilofasial</td>
+                                <td class="p-4">10:00 - 16:00 WIB</td>
+                                <td class="p-4">10:00 - 16:00 WIB</td>
+                                <td class="p-4">09:00 - 13:00 WIB</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-4 font-semibold">Spesialis Konservasi Gigi (Endodonti)</td>
+                                <td class="p-4">08:30 - 14:30 WIB</td>
+                                <td class="p-4">08:30 - 14:30 WIB</td>
+                                <td class="p-4">08:30 - 12:00 WIB</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="text-center mb-8">
+                <h3 class="text-xl font-bold text-slate-800">Dokter Umum Pelayanan Umum</h3>
+                <p class="text-xs text-slate-500 mt-1">Jadwal operasional pelayanan klinis dasar</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white p-3 rounded-2xl shadow-md border border-slate-200 group hover:shadow-xl transition">
+                    <div class="overflow-hidden rounded-xl bg-slate-100">
+                        <img src="./dokter1.jpg" alt="Jadwal dr. Muhammad Fairuzaki" class="w-full h-auto object-cover group-hover:scale-105 transition duration-300" onerror="this.src='dokter1.jpg'; this.onerror=function(){this.src='./dokter1.png'; this.onerror=function(){this.src='dokter1.png'}}}">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h4 class="font-bold text-slate-800 text-base">dr. Muhammad Fairuzaki</h4>
+                        <p class="text-xs text-purple-moestopo font-semibold mt-1">Dokter Umum - RSGMP Moestopo</p>
+                    </div>
+                </div>
+                <div class="bg-white p-3 rounded-2xl shadow-md border border-slate-200 group hover:shadow-xl transition">
+                    <div class="overflow-hidden rounded-xl bg-slate-100">
+                        <img src="./dokter2.jpg" alt="Jadwal dr. Alyka Sheila Masah" class="w-full h-auto object-cover group-hover:scale-105 transition duration-300" onerror="this.src='dokter2.jpg'; this.onerror=function(){this.src='./dokter2.png'; this.onerror=function(){this.src='dokter2.png'}}}">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h4 class="font-bold text-slate-800 text-base">dr. Alyka Sheila Masah</h4>
+                        <p class="text-xs text-purple-moestopo font-semibold mt-1">Dokter Umum - RSGMP Moestopo</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="fasilitas" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-black text-slate-900 mb-2">Fasilitas Utama Penunjang</h2>
+                <div class="w-20 h-1.5 bg-purple-moestopo mx-auto rounded-full"></div>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-slate-50 rounded-2xl border border-slate-100 p-6">
+                    <div class="flex items-center gap-3 mb-3 text-purple-moestopo font-bold text-lg">
+                        <i class="fas fa-radiation"></i> <h4>Radiologi Kedokteran Gigi</h4>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">Fasilitas diagnostik mutakhir yang dilengkapi dengan X-Ray Periapikal digital, Panoramik, Sefalometri, serta CBCT 3D untuk visualisasi struktur maksilofasial yang presisi.</p>
+                </div>
+                <div class="bg-slate-50 rounded-2xl border border-slate-100 p-6">
+                    <div class="flex items-center gap-3 mb-3 text-purple-moestopo font-bold text-lg">
+                        <i class="fas fa-laptop-medical"></i> <h4>Dental Simulator Lab</h4>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">Fasilitas laboratorium preklinik canggih bagi mahasiswa kedokteran gigi untuk mengasah kemampuan taktil psikomotorik sebelum menangani pasien nyata di klinik integrasi.</p>
+                </div>
+                <div class="bg-slate-50 rounded-2xl border border-slate-100 p-6">
+                    <div class="flex items-center gap-3 mb-3 text-purple-moestopo font-bold text-lg">
+                        <i class="fas fa-hospital-user"></i> <h4>Instalasi Gawat Darurat (IGD)</h4>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">Unit penanganan cepat darurat 24 jam untuk kasus trauma wajah, fraktur rahang, perdarahan masif rongga mulut, serta infeksi odontogenik akut.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="k3-report" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-black mb-2 text-red-400"><i class="fas fa-exclamation-triangle mr-2"></i>Form Pelaporan K3RS & Pengaduan</h2>
+            </div>
+            <form class="space-y-4 bg-slate-800 p-8 rounded-2xl border border-slate-700" onsubmit="alert('Laporan berhasil dikirim ke unit K3RS & Manajemen.'); return false;">
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold uppercase mb-1 text-slate-300">Nama Pelapor (Bisa Anonim)</label>
+                        <input type="text" class="w-full bg-slate-900 text-white rounded-lg p-3 text-sm border border-slate-700 focus:outline-none focus:border-red-400" placeholder="Contoh: Staf GA / Umum">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase mb-1 text-slate-300">Kategori Temuan</label>
+                        <select class="w-full bg-slate-900 text-white rounded-lg p-3 text-sm border border-slate-700 focus:outline-none focus:border-red-400">
+                            <option>Potensi Bahaya Fisik/Fasilitas</option>
+                            <option>Kerusakan Instrumen Sterilisasi</option>
+                            <option>Pelanggaran Penggunaan APD</option>
+                            <option>Saran Perbaikan Mutu Pelayanan</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase mb-1 text-slate-300">Deskripsi Detail Temuan / Masukan</label>
+                    <textarea rows="4" class="w-full bg-slate-900 text-white rounded-lg p-3 text-sm border border-slate-700 focus:outline-none focus:border-red-400" placeholder="Tulis kronologi kejadian atau rincian sarana prasarana yang perlu diperbaiki..."></textarea>
+                </div>
+                <button type="submit" class="w-full bg-red-500 hover:bg-red-600 text-white font-bold p-3 rounded-lg text-sm shadow-lg transition">
+                    Kirim Laporan Resmi ke Unit GA & SDM
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-slate-950 text-white pt-16 pb-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-slate-600 text-xs">
+            <p>&copy; 2026 RSGMP Universitas Prof. Dr. Moestopo (Beragama). Manajemen GA, SDM & K3RS Terintegrasi.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            var menu = document.getElementById("mobile-menu");
+            var icon = document.getElementById("menu-icon");
+            if (menu.classList.contains("hidden")) {
+                menu.classList.remove("hidden");
+                icon.classList.remove("fa-bars");
+                icon.classList.add("fa-times");
+            } else {
+                menu.classList.add("hidden");
+                icon.classList.remove("fa-times");
+                icon.classList.add("fa-bars");
+            }
+        }
+    </script>
+
+</body>
+</html>
