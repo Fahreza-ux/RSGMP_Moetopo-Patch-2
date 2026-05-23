@@ -18,7 +18,7 @@
         .bg-medical-gradient {
             background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
         }
-        /* Floating WhatsApp Animation */
+        /* Floating WhatsApp Button */
         .whatsapp-float {
             position: fixed;
             bottom: 24px;
@@ -39,7 +39,7 @@
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans">
 
-    <a href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo%20Admin%20RSGMP%20Moestopo,%20saya%20ingin%20bertanya%20mengenai%20pelayanan%20medis." 
+    <a href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo%20Admin%20RSGMP%20Moestopo,%20saya%20ingin%20tanya%20jadwal%20dan%20pelayanan." 
        target="_blank" class="whatsapp-float flex items-center justify-center text-2xl" title="Hubungi Kami via WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
@@ -325,43 +325,45 @@
         </div>
     </section>
 
-    <section id="k3-report" class="py-20 bg-slate-900 text-white">
+    <section id="k3-report" class="py-20 bg-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-12 items-start">
+            <div class="grid lg:grid-cols-2 gap-12 items-stretch">
                 
-                <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700">
-                    <h2 class="text-2xl font-black mb-4 text-red-400"><i class="fas fa-exclamation-triangle mr-2"></i>Form Pelaporan K3RS</h2>
-                    <form class="space-y-4" onsubmit="alert('Laporan berhasil dikirim ke unit K3RS & GA.'); return false;">
-                        <div>
-                            <label class="block text-xs font-semibold uppercase mb-1 text-slate-300">Nama Pelapor</label>
-                            <input type="text" class="w-full bg-slate-900 text-white rounded-lg p-3 text-sm border border-slate-700 focus:outline-none focus:border-red-400" placeholder="Contoh: Staf GA / Umum">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold uppercase mb-1 text-slate-300">Kategori Temuan</label>
-                            <select class="w-full bg-slate-900 text-white rounded-lg p-3 text-sm border border-slate-700 focus:outline-none focus:border-red-400">
-                                <option>Potensi Bahaya Fisik/Fasilitas</option>
-                                <option>Kerusakan Instrumen Sterilisasi</option>
-                                <option>Saran Perbaikan Mutu Pelayanan</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold uppercase mb-1 text-slate-300">Deskripsi Detail</label>
-                            <textarea rows="3" class="w-full bg-slate-900 text-white rounded-lg p-3 text-sm border border-slate-700 focus:outline-none focus:border-red-400" placeholder="Tulis kronologi kejadian..."></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-red-500 hover:bg-red-600 text-white font-bold p-3 rounded-lg text-sm shadow-lg transition">
-                            Kirim Laporan Resmi
-                        </button>
-                    </form>
+                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <h2 class="text-2xl font-black mb-4 text-purple-moestopo"><i class="fas fa-exclamation-triangle mr-2 text-red-500"></i>Form Pelaporan K3RS & Saran</h2>
+                        <form class="space-y-4" onsubmit="alert('Laporan berhasil dikirim ke unit K3RS & GA.'); return false;">
+                            <div>
+                                <label class="block text-xs font-semibold uppercase mb-1 text-slate-600">Nama Pelapor</label>
+                                <input type="text" class="w-full bg-slate-50 text-slate-800 rounded-lg p-3 text-sm border border-slate-300 focus:outline-none focus:border-purple-moestopo" placeholder="Contoh: Staf GA / Umum">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase mb-1 text-slate-600">Kategori Temuan</label>
+                                <select class="w-full bg-slate-50 text-slate-800 rounded-lg p-3 text-sm border border-slate-300 focus:outline-none focus:border-purple-moestopo">
+                                    <option>Potensi Bahaya Fisik/Fasilitas</option>
+                                    <option>Kerusakan Instrumen Sterilisasi</option>
+                                    <option>Saran Perbaikan Mutu Pelayanan</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase mb-1 text-slate-600">Deskripsi Detail</label>
+                                <textarea rows="3" class="w-full bg-slate-50 text-slate-800 rounded-lg p-3 text-sm border border-slate-300 focus:outline-none focus:border-purple-moestopo" placeholder="Tulis rincian di sini..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-purple-moestopo hover:bg-opacity-90 text-white font-bold p-3 rounded-lg text-sm shadow-md transition">
+                                Kirim Laporan Resmi
+                            </button>
+                        </form>
+                    </div>
                 </div>
 
-                <div class="w-full h-full min-h-[380px] bg-slate-800 p-4 rounded-2xl border border-slate-700 flex flex-col">
-                    <h3 class="text-xl font-bold text-purple-300 mb-3 uppercase tracking-wider text-sm"><i class="fas fa-map-marked-alt mr-2"></i> Lokasi Google Maps Resmi</h3>
-                    <div class="flex-grow rounded-xl overflow-hidden shadow-inner border border-slate-700">
+                <div class="w-full bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-col min-h-[350px]">
+                    <h3 class="text-sm font-bold text-purple-moestopo mb-3 uppercase tracking-wider"><i class="fas fa-map-marked-alt mr-2 text-red-500"></i> Lokasi Google Maps Resmi</h3>
+                    <div class="flex-grow rounded-xl overflow-hidden shadow-sm border border-slate-200 h-full">
                         <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.11326442654!2d106.75836267583768!3d-6.248873093739678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1m3!1d1!2s!3s0x2e69fa0f937cd26d%3A0x6b441da008061d4!4zUlNHTVAgUHJvZi4gRHIuIE1vZXN0b3BvIChCZXJhZ2FtYSk!5e0!3m2!1sid!2sid!4v1716500000000!5m2!1sid!2sid" 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m4!2s0x2e69f067425f1903%3A0x6bfe76e2716a5db8!2sRSGMP%20Prof.%20Dr.%20Moestopo!5m2!1sid!2sid" 
                             width="100%" 
                             height="100%" 
-                            style="border:0; min-height: 300px;" 
+                            style="border:0; min-height: 280px;" 
                             allowfullscreen="" 
                             loading="lazy" 
                             referrerpolicy="no-referrer-when-downgrade">
@@ -400,7 +402,7 @@
                 </div>
             </div>
             <div class="border-t border-slate-900 pt-6 text-center text-slate-600 text-xs">
-                <p>&copy; 2026 RSGMP Universitas Prof. Dr. Moestopo (Beragama). | Divisi Umum, SDM & K3RS.</p>
+                <p>&copy; 2026 RSGMP Universitas Prof. Dr. Moestopo (Beragama). | Divisi Umum, SDM & K3RS Terintegrasi.</p>
             </div>
         </div>
     </footer>
