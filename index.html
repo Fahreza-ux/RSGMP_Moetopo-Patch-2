@@ -116,7 +116,7 @@
                 <div class="relative w-full flex justify-center items-center px-2 md:px-0">
                     <div class="absolute inset-0 bg-purple-moestopo opacity-10 rounded-full blur-3xl transform scale-75"></div>
                     <div class="w-full max-w-md bg-white p-2 rounded-2xl shadow-2xl border border-purple-100 overflow-hidden">
-                        <img id="banner-hero" src="./logo2.jpg" alt="Banner Informasi RSGMP Moestopo" class="w-full h-auto rounded-xl object-contain block" onerror="this.src='logo2.jpg'; this.onerror=function(){this.src='logo2.png'}">
+                        <img id="banner-hero" src="./logo2.jpg" alt="Banner Informasi RSGMP Moestopo" class="w-full h-auto rounded-xl object-contain block" style="min-height: 150px;" onerror="this.src='logo2.jpg'; this.onerror=function(){this.src='logo2.png'}">
                     </div>
                 </div>
 
@@ -270,57 +270,92 @@
 
             <div class="text-center mb-8">
                 <h3 class="text-xl font-bold text-slate-800">Tim Dokter Umum Pelayanan Klinis</h3>
-                <p class="text-xs text-slate-500 mt-1">Jadwal operasional pelayanan klinis dasar</p>
+                <p class="text-xs text-slate-500 mt-1">Sesuaikan kedatangan Anda dengan hari aktif berkala dokter di bawah ini</p>
             </div>
             
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <div class="bg-white p-3 rounded-2xl shadow-md border border-slate-200 group">
-                    <div class="overflow-hidden rounded-xl">
-                        <img src="./dokter1.jpg" alt="dr. Muhammad Fairuzaki" class="w-full h-auto object-cover" onerror="this.src='dokter1.jpg'">
+                <div class="bg-white p-3 rounded-2xl shadow-md border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="overflow-hidden rounded-xl">
+                            <img src="./dokter1.jpg" alt="dr. Muhammad Fairuzaki" class="w-full h-auto object-cover" onerror="this.src='dokter1.jpg'">
+                        </div>
+                        <div class="p-4 text-center">
+                            <h4 class="font-bold text-slate-800 text-sm">dr. Muhammad Fairuzaki</h4>
+                            <p class="text-[11px] text-purple-moestopo font-semibold uppercase tracking-wider mt-0.5">Dokter Umum</p>
+                        </div>
                     </div>
-                    <div class="p-4 text-center">
-                        <h4 class="font-bold text-slate-800 text-sm">dr. Muhammad Fairuzaki</h4>
-                        <p class="text-xs text-purple-moestopo font-semibold mt-1">Dokter Umum</p>
-                    </div>
-                </div>
-
-                <div class="bg-white p-3 rounded-2xl shadow-md border border-slate-200 group">
-                    <div class="overflow-hidden rounded-xl">
-                        <img src="./dokter2.jpg" alt="dr. Alyka Sheila Masah" class="w-full h-auto object-cover" onerror="this.src='dokter2.jpg'">
-                    </div>
-                    <div class="p-4 text-center">
-                        <h4 class="font-bold text-slate-800 text-sm">dr. Alyka Sheila Masah</h4>
-                        <p class="text-xs text-purple-moestopo font-semibold mt-1">Dokter Umum</p>
+                    <div class="bg-purple-50 p-3 rounded-xl border border-purple-100 text-center mt-2">
+                        <span class="text-[10px] uppercase font-bold text-slate-400 block tracking-widest">Hari Praktik</span>
+                        <span class="text-xs font-bold text-purple-moestopo block mt-0.5">Senin & Rabu</span>
+                        <span class="text-[11px] text-slate-600 block mt-1"><i class="far fa-clock mr-1"></i>08:00 - 14:00 WIB</span>
                     </div>
                 </div>
 
-                <div class="bg-white p-3 rounded-2xl shadow-md border border-slate-200 group">
-                    <div class="overflow-hidden rounded-xl">
-                        <img src="./dokter3.jpg" alt="dr. Ratu Raniazahra Jonis" class="w-full h-auto object-cover" onerror="this.src='dokter3.jpg'; this.onerror=function(){this.src='dokter3.png'}">
+                <div class="bg-white p-3 rounded-2xl shadow-md border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="overflow-hidden rounded-xl">
+                            <img src="./dokter2.jpg" alt="dr. Alyka Sheila Masah" class="w-full h-auto object-cover" onerror="this.src='dokter2.jpg'">
+                        </div>
+                        <div class="p-4 text-center">
+                            <h4 class="font-bold text-slate-800 text-sm">dr. Alyka Sheila Masah</h4>
+                            <p class="text-[11px] text-purple-moestopo font-semibold uppercase tracking-wider mt-0.5">Dokter Umum</p>
+                        </div>
                     </div>
-                    <div class="p-4 text-center">
-                        <h4 class="font-bold text-slate-800 text-sm">dr. Ratu Raniazahra Jonis</h4>
-                        <p class="text-xs text-purple-moestopo font-semibold mt-1">Dokter Umum</p>
-                    </div>
-                </div>
-
-                <div class="bg-white p-3 rounded-2xl shadow-md border border-slate-200 group">
-                    <div class="overflow-hidden rounded-xl">
-                        <img src="./dokter4.jpg" alt="dr. Fathul Jannah" class="w-full h-auto object-cover" onerror="this.src='dokter4.jpg'; this.onerror=function(){this.src='dokter4.png'}">
-                    </div>
-                    <div class="p-4 text-center">
-                        <h4 class="font-bold text-slate-800 text-sm">dr. Fathul Jannah</h4>
-                        <p class="text-xs text-purple-moestopo font-semibold mt-1">Dokter Umum</p>
+                    <div class="bg-purple-50 p-3 rounded-xl border border-purple-100 text-center mt-2">
+                        <span class="text-[10px] uppercase font-bold text-slate-400 block tracking-widest">Hari Praktik</span>
+                        <span class="text-xs font-bold text-purple-moestopo block mt-0.5">Selasa & Kamis</span>
+                        <span class="text-[11px] text-slate-600 block mt-1"><i class="far fa-clock mr-1"></i>13:00 - 19:00 WIB</span>
                     </div>
                 </div>
 
-                <div class="bg-white p-3 rounded-2xl shadow-md border border-slate-200 group lg:col-span-1">
-                    <div class="overflow-hidden rounded-xl">
-                        <img src="./dokter5.jpg" alt="dr. Andy Hidayat, M.Biomed" class="w-full h-auto object-cover" onerror="this.src='dokter5.jpg'; this.onerror=function(){this.src='dokter5.png'}">
+                <div class="bg-white p-3 rounded-2xl shadow-md border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="overflow-hidden rounded-xl">
+                            <img src="./dokter3.jpg" alt="dr. Ratu Raniazahra Jonis" class="w-full h-auto object-cover" onerror="this.src='dokter3.jpg'">
+                        </div>
+                        <div class="p-4 text-center">
+                            <h4 class="font-bold text-slate-800 text-sm">dr. Ratu Raniazahra Jonis</h4>
+                            <p class="text-[11px] text-purple-moestopo font-semibold uppercase tracking-wider mt-0.5">Dokter Umum</p>
+                        </div>
                     </div>
-                    <div class="p-4 text-center">
-                        <h4 class="font-bold text-slate-800 text-sm">dr. Andy Hidayat, M.Biomed</h4>
-                        <p class="text-xs text-purple-moestopo font-semibold mt-1">Dokter Umum</p>
+                    <div class="bg-purple-50 p-3 rounded-xl border border-purple-100 text-center mt-2">
+                        <span class="text-[10px] uppercase font-bold text-slate-400 block tracking-widest">Hari Praktik</span>
+                        <span class="text-xs font-bold text-purple-moestopo block mt-0.5">Rabu & Jumat</span>
+                        <span class="text-[11px] text-slate-600 block mt-1"><i class="far fa-clock mr-1"></i>08:00 - 14:00 WIB</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-3 rounded-2xl shadow-md border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="overflow-hidden rounded-xl">
+                            <img src="./dokter4.jpg" alt="dr. Fathul Jannah" class="w-full h-auto object-cover" onerror="this.src='dokter4.jpg'">
+                        </div>
+                        <div class="p-4 text-center">
+                            <h4 class="font-bold text-slate-800 text-sm">dr. Fathul Jannah</h4>
+                            <p class="text-[11px] text-purple-moestopo font-semibold uppercase tracking-wider mt-0.5">Dokter Umum</p>
+                        </div>
+                    </div>
+                    <div class="bg-purple-50 p-3 rounded-xl border border-purple-100 text-center mt-2">
+                        <span class="text-[10px] uppercase font-bold text-slate-400 block tracking-widest">Hari Praktik</span>
+                        <span class="text-xs font-bold text-purple-moestopo block mt-0.5">Kamis & Sabtu</span>
+                        <span class="text-[11px] text-slate-600 block mt-1"><i class="far fa-clock mr-1"></i>09:00 - 13:00 WIB</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-3 rounded-2xl shadow-md border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="overflow-hidden rounded-xl">
+                            <img src="./dokter5.jpg" alt="dr. Andy Hidayat, M.Biomed" class="w-full h-auto object-cover" onerror="this.src='dokter5.jpg'">
+                        </div>
+                        <div class="p-4 text-center">
+                            <h4 class="font-bold text-slate-800 text-sm">dr. Andy Hidayat, M.Biomed</h4>
+                            <p class="text-[11px] text-purple-moestopo font-semibold uppercase tracking-wider mt-0.5">Dokter Umum</p>
+                        </div>
+                    </div>
+                    <div class="bg-purple-50 p-3 rounded-xl border border-purple-100 text-center mt-2">
+                        <span class="text-[10px] uppercase font-bold text-slate-400 block tracking-widest">Hari Praktik</span>
+                        <span class="text-xs font-bold text-purple-moestopo block mt-0.5">Senin & Jumat</span>
+                        <span class="text-[11px] text-slate-600 block mt-1"><i class="far fa-clock mr-1"></i>14:00 - 20:00 WIB</span>
                     </div>
                 </div>
             </div>
@@ -404,7 +439,7 @@
                         </div>
                     </div>
                     
-                    <a href="https://maps.google.com/?q=RSGMP+Prof.+Dr.+Moestopo+Bintaro" 
+                    <a href="https://www.google.com/maps/search/?api=1&query=RSGMP+Prof.+Dr.+Moestopo+Bintaro" 
                        target="_blank" 
                        rel="noopener noreferrer"
                        class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold p-4 rounded-xl text-center shadow-lg transition flex items-center justify-center gap-2 mt-4">
