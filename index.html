@@ -1,4 +1,3 @@
-</html>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -6,53 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RSGMP Moestopo - Portal Internal</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .sop-card { transition: all 0.3s ease; }
-        .dark-mode { background-color: #0f172a !important; color: #f1f5f9 !important; }
-        .dark-mode .bg-white { background-color: #1e293b !important; color: #f1f5f9 !important; border-color: #334155 !important; }
-    </style>
 </head>
-<body class="bg-slate-50 font-sans transition-colors duration-300">
+<body class="bg-gray-100 p-4">
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl font-bold text-center my-8">RSGMP Moestopo Internal</h1>
+        
+        <input type="text" id="sop-search" onkeyup="search()" class="w-full p-4 rounded-lg border" placeholder="Cari SOP...">
 
-    <nav class="bg-white shadow-sm p-4 sticky top-0 z-50">
-        <div class="max-w-4xl mx-auto flex justify-between items-center">
-            <span class="font-bold text-purple-700">RSGMP MOESTOPO</span>
-            <button onclick="document.body.classList.toggle('dark-mode')" class="text-xs bg-slate-800 text-white px-3 py-1 rounded-full">Mode Teduh</button>
-        </div>
-    </nav>
-
-    <main class="max-w-4xl mx-auto p-4 py-8">
-        <h1 class="text-2xl font-black text-center mb-6">Manajemen SOP & K3RS</h1>
-
-        <div class="mb-8">
-            <input type="text" id="sop-search-input" onkeyup="filterSopCards()" 
-                   class="w-full p-4 rounded-full border border-slate-300 shadow-sm outline-none focus:ring-2 focus:ring-purple-500" 
-                   placeholder="Cari SOP (Contoh: Limbah, CSSD)...">
-        </div>
-
-        <div id="sop-cards-container" class="flex flex-wrap justify-center gap-4">
-            <div class="sop-card bg-white p-6 rounded-2xl border shadow-sm w-full max-w-xs">
-                <h3 class="font-bold">Pengolahan Limbah B3</h3>
-                <p class="text-sm text-slate-500 mt-2">Panduan penanganan limbah medis infeksius.</p>
+        <div id="container" class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+            <div class="card bg-white p-6 rounded shadow">
+                <h3 class="font-bold">Limbah B3</h3>
+                <p class="text-sm">Panduan limbah medis.</p>
             </div>
-            <div class="sop-card bg-white p-6 rounded-2xl border shadow-sm w-full max-w-xs">
-                <h3 class="font-bold">Sterilisasi CSSD</h3>
-                <p class="text-sm text-slate-500 mt-2">Prosedur alur satu arah sterilisasi.</p>
-            </div>
-            <div class="sop-card bg-white p-6 rounded-2xl border shadow-sm w-full max-w-xs">
-                <h3 class="font-bold">Mitigasi Kebakaran</h3>
-                <p class="text-sm text-slate-500 mt-2">Prosedur penggunaan APAR dan evakuasi.</p>
+            <div class="card bg-white p-6 rounded shadow">
+                <h3 class="font-bold">Sterilisasi</h3>
+                <p class="text-sm">Prosedur sterilisasi alat.</p>
             </div>
         </div>
-    </main>
+    </div>
 
     <script>
-        function filterSopCards() {
-            let input = document.getElementById('sop-search-input').value.toLowerCase();
-            let cards = document.getElementsByClassName('sop-card');
-            for (let card of cards) {
-                card.style.display = card.innerText.toLowerCase().includes(input) ? "" : "none";
+        function search() {
+            let val = document.getElementById('sop-search').value.toLowerCase();
+            let cards = document.getElementsByClassName('card');
+            for(let card of cards) {
+                card.style.display = card.innerText.toLowerCase().includes(val) ? "" : "none";
             }
         }
     </script>
