@@ -59,40 +59,65 @@
             background-color: #3f3d82;
         }
 
-        /* High Contrast Mode Style */
-        .high-contrast {
-            background-color: #000000 !important;
+        /* PERBAIKAN: Mode Gelap Premium (Teduh, Anti Sakit Mata) */
+        .dark-premium-mode {
+            background-color: #0f172a !important; /* Slate 900 (Teduh) */
+            color: #f1f5f9 !important; /* Putih abu-abu lembut */
+        }
+        .dark-premium-mode nav, 
+        .dark-premium-mode section, 
+        .dark-premium-mode footer {
+            background-color: #1e293b !important; /* Slate 800 */
+            color: #e2e8f0 !important;
+            border-color: #334155 !important;
+        }
+        .dark-premium-mode div.bg-white, 
+        .dark-premium-mode div.bg-slate-50, 
+        .dark-premium-mode div.bg-purple-light,
+        .dark-premium-mode tr.hover\:bg-slate-50:hover {
+            background-color: #1e293b !important;
+            color: #f1f5f9 !important;
+            border-color: #334155 !important;
+        }
+        .dark-premium-mode h1, 
+        .dark-premium-mode h2, 
+        .dark-premium-mode h3, 
+        .dark-premium-mode h4,
+        .dark-premium-mode .text-slate-900 {
             color: #ffffff !important;
         }
-        .high-contrast nav, .high-contrast section, .high-contrast div, .high-contrast table, .high-contrast tbody, .high-contrast tr, .high-contrast td, .high-contrast footer {
-            background-color: #000000 !important;
-            color: #ffffff !important;
-            border-color: #ffffff !important;
+        .dark-premium-mode a, 
+        .dark-premium-mode span,
+        .dark-premium-mode .text-purple-moestopo {
+            color: #cbd5e1 !important; /* Meredam warna ungu pekat agar tidak tabrakan */
         }
-        .high-contrast a, .high-contrast h1, .high-contrast h2, .high-contrast h3, .high-contrast h4, .high-contrast span, .high-contrast th, .high-contrast td {
-            color: #ffff00 !important;
+        .dark-premium-mode .bg-purple-50 {
+            background-color: #334155 !important;
+            border-color: #475569 !important;
         }
-        .high-contrast button, .high-contrast input, .high-contrast select, .high-contrast textarea {
-            background-color: #111111 !important;
+        .dark-premium-mode input, 
+        .dark-premium-mode select, 
+        .dark-premium-mode textarea {
+            background-color: #0f172a !important;
             color: #ffffff !important;
-            border: 2px solid #ffffff !important;
+            border: 1px solid #475569 !important;
         }
 
-        /* Accordion Custom Style for FAQ */
+        /* Accordion Style for FAQ */
         .faq-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-out;
         }
         .faq-item.active .faq-content {
-            max-height: 200px;
+            max-height: 250px;
         }
         .faq-item.active .faq-toggle-icon {
             transform: rotate(180deg);
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans">
+<body class="bg-slate-50 text-slate-800 font-sans transition-colors duration-300">
 
     <button id="back-to-top" onclick="scrollToTop()" title="Kembali ke Atas">
         <i class="fas fa-chevron-up text-lg block"></i>
@@ -127,14 +152,14 @@
                         <i class="fas fa-exclamation-triangle"></i> Lapor K3
                     </a>
                     
-                    <button onclick="toggleAccessibility()" class="bg-slate-800 text-white px-3 py-2 rounded-lg hover:bg-slate-900 transition flex items-center gap-1 text-xs" title="Mode Kontras Tinggi">
-                        <i class="fas fa-eye-dropper"></i> Aksesibilitas
+                    <button onclick="toggleDarkModePremium()" class="bg-slate-800 text-white px-3 py-2 rounded-lg hover:bg-slate-900 transition flex items-center gap-1 text-xs" title="Ubah Mode Tampilan">
+                        <i class="fas fa-moon"></i> Mode Teduh
                     </button>
                 </div>
 
                 <div class="lg:hidden flex items-center space-x-2">
-                    <button onclick="toggleAccessibility()" class="bg-slate-800 text-white p-2 rounded-lg text-xs">
-                        <i class="fas fa-eye-dropper"></i>
+                    <button onclick="toggleDarkModePremium()" class="bg-slate-800 text-white p-2 rounded-lg text-xs">
+                        <i class="fas fa-moon"></i>
                     </button>
                     <button onclick="toggleMobileMenu()" class="text-slate-600 hover:text-purple-moestopo focus:outline-none text-2xl">
                         <i id="menu-icon" class="fas fa-bars"></i>
@@ -340,7 +365,7 @@
 
             <div class="text-center mb-8">
                 <h3 class="text-xl font-bold text-slate-800">Tim Dokter Umum Pelayanan Klinis</h3>
-                <p class="text-xs text-slate-500 mt-1">Sesuaikan kedatangan Anda dengan hari aktif berkala dokter di bawah ini</p>
+                <p class="text-xs text-slate-500 mt-1">Data sinkron akurat sesuai dengan sistem poster penugasan klinis harian</p>
             </div>
             
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -356,8 +381,10 @@
                     </div>
                     <div class="bg-purple-50 p-3 rounded-xl border border-purple-100 text-center mt-2">
                         <span class="text-[10px] uppercase font-bold text-slate-400 block tracking-widest">Hari Praktik</span>
-                        <span class="text-xs font-bold text-purple-moestopo block mt-0.5">Senin & Rabu</span>
-                        <span class="text-[11px] text-slate-600 block mt-1"><i class="far fa-clock mr-1"></i>08:00 - 14:00 WIB</span>
+                        <span class="text-xs font-bold text-purple-moestopo block mt-0.5">Kamis & Jumat</span>
+                        <span class="text-[11px] text-slate-600 block mt-1"><i class="far fa-clock mr-1"></i>08:00 - 20:00 WIB</span>
+                        <span class="text-xs font-bold text-purple-moestopo block mt-1">Sabtu & Minggu</span>
+                        <span class="text-[11px] text-slate-600 block mt-1"><i class="far fa-clock mr-1"></i>08:00 - 16:00 WIB</span>
                     </div>
                 </div>
 
@@ -373,8 +400,10 @@
                     </div>
                     <div class="bg-purple-50 p-3 rounded-xl border border-purple-100 text-center mt-2">
                         <span class="text-[10px] uppercase font-bold text-slate-400 block tracking-widest">Hari Praktik</span>
-                        <span class="text-xs font-bold text-purple-moestopo block mt-0.5">Selasa & Kamis</span>
-                        <span class="text-[11px] text-slate-600 block mt-1"><i class="far fa-clock mr-1"></i>13:00 - 19:00 WIB</span>
+                        <span class="text-xs font-bold text-purple-moestopo block mt-0.5">Senin & Selasa</span>
+                        <span class="text-[11px] text-slate-600 block mt-1"><i class="far fa-clock mr-1"></i>08:00 - 20:00 WIB</span>
+                        <span class="text-xs font-bold text-purple-moestopo block mt-1">Sabtu & Minggu</span>
+                        <span class="text-[11px] text-slate-600 block mt-1"><i class="far fa-clock mr-1"></i>08:00 - 16:00 WIB</span>
                     </div>
                 </div>
 
@@ -390,8 +419,10 @@
                     </div>
                     <div class="bg-purple-50 p-3 rounded-xl border border-purple-100 text-center mt-2">
                         <span class="text-[10px] uppercase font-bold text-slate-400 block tracking-widest">Hari Praktik</span>
-                        <span class="text-xs font-bold text-purple-moestopo block mt-0.5">Rabu & Jumat</span>
-                        <span class="text-[11px] text-slate-600 block mt-1"><i class="far fa-clock mr-1"></i>08:00 - 14:00 WIB</span>
+                        <span class="text-xs font-bold text-purple-moestopo block mt-0.5">Senin & Jumat</span>
+                        <span class="text-[11px] text-slate-600 block mt-1"><i class="far fa-clock mr-1"></i>08:00 - 16:00 WIB</span>
+                        <span class="text-xs font-bold text-purple-moestopo block mt-1">Selasa & Kamis</span>
+                        <span class="text-[11px] text-slate-600 block mt-1"><i class="far fa-clock mr-1"></i>08:00 - 20:00 WIB</span>
                     </div>
                 </div>
 
@@ -407,8 +438,10 @@
                     </div>
                     <div class="bg-purple-50 p-3 rounded-xl border border-purple-100 text-center mt-2">
                         <span class="text-[10px] uppercase font-bold text-slate-400 block tracking-widest">Hari Praktik</span>
-                        <span class="text-xs font-bold text-purple-moestopo block mt-0.5">Kamis & Sabtu</span>
-                        <span class="text-[11px] text-slate-600 block mt-1"><i class="far fa-clock mr-1"></i>09:00 - 13:00 WIB</span>
+                        <span class="text-xs font-bold text-purple-moestopo block mt-0.5">Rabu & Jumat</span>
+                        <span class="text-[11px] text-slate-600 block mt-1"><i class="far fa-clock mr-1"></i>08:00 - 20:00 WIB</span>
+                        <span class="text-xs font-bold text-purple-moestopo block mt-1">Kamis & Minggu</span>
+                        <span class="text-[11px] text-slate-600 block mt-1"><i class="far fa-clock mr-1"></i>08:00 - 16:00 WIB</span>
                     </div>
                 </div>
 
@@ -425,7 +458,7 @@
                     <div class="bg-purple-50 p-3 rounded-xl border border-purple-100 text-center mt-2">
                         <span class="text-[10px] uppercase font-bold text-slate-400 block tracking-widest">Hari Praktik</span>
                         <span class="text-xs font-bold text-purple-moestopo block mt-0.5">Senin & Jumat</span>
-                        <span class="text-[11px] text-slate-600 block mt-1"><i class="far fa-clock mr-1"></i>14:00 - 20:00 WIB</span>
+                        <span class="text-[11px] text-slate-600 block mt-1"><i class="far fa-clock mr-1"></i>08:00 - 16:00 WIB</span>
                     </div>
                 </div>
             </div>
@@ -460,6 +493,7 @@
                                 <option>Kamis</option>
                                 <option>Jumat</option>
                                 <option>Sabtu</option>
+                                <option>Minggu</option>
                             </select>
                         </div>
                     </div>
@@ -486,7 +520,7 @@
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-black text-slate-900 mb-2">FAQ Interaktif K3RS & GA</h2>
                 <div class="w-20 h-1.5 bg-purple-moestopo mx-auto rounded-full mb-4"></div>
-                <p class="text-sm text-slate-500">Pertanyaan umum seputar pelayanan klinis, tata tertib fasilitas, dan darurat K3</p>
+                <p class="text-sm text-slate-500">Pusat informasi mandiri seputar operasional sarana dan darurat keselamatan kerja</p>
             </div>
 
             <div class="space-y-4">
@@ -606,7 +640,7 @@
                         </div>
                     </div>
                     
-                    <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m4!2s0x2e69f067425f1903%3A0x6bfe76e2716a5db8!2sRSGMP%20Prof.%20Dr.%20Moestopo!5m2!1sid!2sid2" 
+                    <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m4!2s0x2e69f067425f1903%3A0x6bfe76e2716a5db8!2sRSGMP%20Prof.%20Dr.%20Moestopo!5m2!1sid!2sid3" 
                        target="_blank" 
                        rel="noopener noreferrer"
                        class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold p-4 rounded-xl text-center shadow-lg transition flex items-center justify-center gap-2 mt-4">
@@ -682,9 +716,9 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Toggle High Contrast Mode (Aksesibilitas)
-        function toggleAccessibility() {
-            document.body.classList.toggle("high-contrast");
+        // PERBAIKAN UTAMA: Toggle Mode Gelap Premium yang Teduh di Mata
+        function toggleDarkModePremium() {
+            document.body.classList.toggle("dark-premium-mode");
         }
 
         // FAQ Interactive Logic
