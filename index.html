@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSGMP Moestopo - Pelayanan & Pendidikan Medis Modern</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --purple-main: #514fa1; --purple-light: #f5f3ff; }
+        html { scroll-behavior: smooth; }
+        .bg-purple-moestopo { background-color: var(--purple-main); }
+        .text-purple-moestopo { color: var(--purple-main); }
+        .border-purple-moestopo { border-color: var(--purple-main); }
+        .bg-medical-gradient { background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%); }
+        .whatsapp-float { position: fixed; bottom: 24px; right: 24px; z-index: 100; background-color: #25d366; color: white; padding: 16px; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: all 0.3s ease; }
+        .whatsapp-float:hover { transform: scale(1.1); background-color: #20ba5a; }
+        #back-to-top { position: fixed; bottom: 92px; right: 24px; z-index: 100; background-color: var(--purple-main); color: white; padding: 14px; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: all 0.3s ease; opacity: 0; visibility: hidden; }
+        #back-to-top.show { opacity: 1; visibility: visible; }
+        #back-to-top:hover { transform: translateY(-5px); background-color: #3f3d82; }
+        .dark-premium-mode { background-color: #0f172a !important; color: #f1f5f9 !important; }
+        .dark-premium-mode nav, .dark-premium-mode section, .dark-premium-mode footer { background-color: #1e293b !important; color: #e2e8f0 !important; border-color: #334155 !important; }
+        .dark-premium-mode div.bg-white, .dark-premium-mode div.bg-slate-50, .dark-premium-mode div.bg-purple-light, .dark-premium-mode tr.hover\:bg-slate-50:hover { background-color: #1e293b !important; color: #f1f5f9 !important; border-color: #334155 !important; }
+        .dark-premium-mode h1, .dark-premium-mode h2, .dark-premium-mode h3, .dark-premium-mode h4, .dark-premium-mode .text-slate-900 { color: #ffffff !important; }
+        .dark-premium-mode a, .dark-premium-mode span, .dark-premium-mode .text-purple-moestopo { color: #cbd5e1 !important; }
+        .dark-premium-mode .bg-purple-50 { background-color: #334155 !important; border-color: #475569 !important; }
+        .dark-premium-mode input, .dark-premium-mode select, .dark-premium-mode textarea { background-color: #0f172a !important; color: #ffffff !important; border: 1px solid #475569 !important; }
+        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+        .faq-item.active .faq-content { max-height: 250px; }
+        .faq-item.active .faq-toggle-icon { transform: rotate(180deg); }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans transition-colors duration-300">
+
+    <button id="back-to-top" onclick="scrollToTop()" title="Kembali ke Atas">
+        <i class="fas fa-chevron-up text-lg block"></i>
+    </button>
+
+    <a href="https://wa.me/6281291563492" target="_blank" class="whatsapp-float flex items-center justify-center text-2xl" title="Hubungi Kami via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-24 items-center">
+                <div class="flex items-center space-x-3">
+                    <span class="font-bold text-base md:text-xl tracking-tight block text-purple-moestopo uppercase">RSGMP MOESTOPO</span>
+                </div>
+                <div class="hidden lg:flex items-center space-x-5 font-semibold text-sm">
+                    <a href="#beranda" class="text-slate-600 hover:text-purple-moestopo">Beranda</a>
+                    <a href="#pendaftaran" class="text-slate-600 hover:text-purple-moestopo">Daftar Online</a>
+                    <button onclick="toggleDarkModePremium()" class="bg-slate-800 text-white px-3 py-2 rounded-lg text-xs">Mode Teduh</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="beranda" class="pt-36 pb-16 bg-medical-gradient">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h1 class="text-4xl font-black text-slate-900 mb-6">Pelayanan Prima, Pendidikan Unggul</h1>
+            <a href="#pendaftaran" class="bg-purple-moestopo text-white px-8 py-4 rounded-xl font-bold">Daftar Sekarang</a>
+        </div>
+    </section>
+
+    <section id="pendaftaran" class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-black mb-8">Pendaftaran & Lokasi</h2>
+            <form id="form-wa-booking" class="space-y-4 bg-purple-50 p-8 rounded-3xl" onsubmit="handleFormPendaftaran(event)">
+                <input type="text" id="pasien-name" required class="w-full p-4 rounded-xl" placeholder="Nama Lengkap">
+                <input type="date" id="pasien-dob" required class="w-full p-4 rounded-xl">
+                <button type="submit" class="w-full bg-purple-moestopo text-white font-bold p-4 rounded-xl">Kirim ke WhatsApp</button>
+            </form>
+            
+            <div class="mt-12">
+                <a href="https://maps.app.goo.gl/95a536H24uQW7w7n7" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="bg-emerald-500 text-white px-8 py-4 rounded-xl font-bold inline-flex items-center gap-2">
+                    <i class="fas fa-location-arrow"></i> Buka Rute di Google Maps (Komputer/HP)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-950 text-white py-10 text-center text-xs">
+        © 2026 RSGMP Universitas Prof. Dr. Moestopo (Beragama).
+    </footer>
+
+    <script>
+        function toggleDarkModePremium() { document.body.classList.toggle("dark-premium-mode"); }
+        function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+        
+        function handleFormPendaftaran(event) {
+            event.preventDefault();
+            const name = document.getElementById("pasien-name").value;
+            const dob = document.getElementById("pasien-dob").value;
+            const text = `Halo Admin, saya ingin mendaftar: Nama ${name}, Tgl Lahir ${dob}.`;
+            window.open(`https://wa.me/6281291563492?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        window.onscroll = function() {
+            const btn = document.getElementById("back-to-top");
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) btn.classList.add("show");
+            else btn.classList.remove("show");
+        };
+    </script>
+</body>
+</html>
