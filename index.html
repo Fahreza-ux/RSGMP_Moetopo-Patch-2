@@ -11,7 +11,13 @@
             --purple-main: #514fa1;
             --purple-light: #f5f3ff;
         }
-        html { scroll-behavior: smooth; }
+        
+        /* ✅ PERBAIKAN: Offset untuk navbar fixed */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+        
         .bg-purple-moestopo { background-color: var(--purple-main); }
         .text-purple-moestopo { color: var(--purple-main); }
         .border-purple-moestopo { border-color: var(--purple-main); }
@@ -151,10 +157,10 @@
     </a>
 
     <!-- ============ NAVBAR ============ -->
-    <nav class="bg-white shadow-lg fixed w-full z-50">
+    <nav class="bg-white shadow-lg fixed w-full z-50 top-0">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-24 items-center">
-                <!-- ✅ LOGO DAN TEKS BISA DIKLIK UNTUK BALIK KE ATAS -->
+                <!-- Logo bisa diklik balik ke atas -->
                 <div onclick="scrollToTop()" class="flex items-center space-x-3 cursor-pointer">
                     <img src="logo.png" alt="Logo Resmi RSGMP Moestopo" class="h-16 w-auto object-contain" onerror="this.style.display='none'">
                     <div>
