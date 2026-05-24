@@ -59,15 +59,15 @@
             background-color: #3f3d82;
         }
 
-        /* Mode Gelap Premium (Teduh, Elegan, Anti Sakit Mata) */
+        /* Mode Gelap Premium */
         .dark-premium-mode {
-            background-color: #0f172a !important; /* Slate 900 */
+            background-color: #0f172a !important;
             color: #f1f5f9 !important;
         }
         .dark-premium-mode nav, 
         .dark-premium-mode section, 
         .dark-premium-mode footer {
-            background-color: #1e293b !important; /* Slate 800 */
+            background-color: #1e293b !important;
             color: #e2e8f0 !important;
             border-color: #334155 !important;
         }
@@ -115,6 +115,23 @@
         .faq-item.active .faq-toggle-icon {
             transform: rotate(180deg);
         }
+        
+        /* Map iframe responsive */
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        @media (max-width: 768px) {
+            .map-container {
+                height: 300px;
+            }
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans transition-colors duration-300">
@@ -128,11 +145,12 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <!-- ============ NAVBAR ============ -->
     <nav class="bg-white shadow-lg fixed w-full z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-24 items-center">
                 <div class="flex items-center space-x-3">
-                    <img src="./logo.png" alt="Logo Resmi RSGMP Moestopo" class="h-16 w-auto object-contain" onerror="this.src='logo.png'; this.onerror=function(){this.src='logo.jpg'}">
+                    <img src="logo.png" alt="Logo Resmi RSGMP Moestopo" class="h-16 w-auto object-contain" onerror="this.style.display='none'">
                     <div>
                         <span class="font-bold text-base md:text-xl tracking-tight block text-purple-moestopo uppercase">RSGMP MOESTOPO</span>
                         <span class="text-[10px] md:text-xs text-slate-500 block font-medium">Univ. Prof. Dr. Moestopo (Beragama)</span>
@@ -151,8 +169,7 @@
                     <a href="#k3-report" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition flex items-center gap-2">
                         <i class="fas fa-exclamation-triangle"></i> Lapor K3
                     </a>
-                    
-                    <button onclick="toggleDarkModePremium()" class="bg-slate-800 text-white px-3 py-2 rounded-lg hover:bg-slate-900 transition flex items-center gap-1 text-xs" title="Ubah Mode Tampilan">
+                    <button onclick="toggleDarkModePremium()" class="bg-slate-800 text-white px-3 py-2 rounded-lg hover:bg-slate-900 transition flex items-center gap-1 text-xs">
                         <i class="fas fa-moon"></i> Mode Teduh
                     </button>
                 </div>
@@ -183,10 +200,10 @@
         </div>
     </nav>
 
+    <!-- ============ BERANDA SECTION ============ -->
     <section id="beranda" class="pt-36 pb-16 md:pt-44 md:pb-24 bg-medical-gradient relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid md:grid-cols-2 gap-10 items-center">
-                
                 <div class="space-y-6 text-center md:text-left">
                     <div class="inline-flex items-center space-x-2 bg-white border border-purple-200 text-purple-700 px-4 py-1.5 rounded-full text-xs font-bold shadow-sm mx-auto md:mx-0">
                         <span class="flex h-2 w-2 rounded-full bg-green-500 animate-ping"></span>
@@ -211,14 +228,14 @@
                 <div class="relative w-full flex justify-center items-center px-2 md:px-0">
                     <div class="absolute inset-0 bg-purple-moestopo opacity-10 rounded-full blur-3xl transform scale-75"></div>
                     <div class="w-full max-w-md bg-white p-2 rounded-2xl shadow-2xl border border-purple-100 overflow-hidden">
-                        <img id="banner-hero" src="./logo2.jpg" alt="Banner Informasi RSGMP Moestopo" class="w-full h-auto rounded-xl object-contain block" style="min-height: 150px;" onerror="this.src='logo2.jpg'; this.onerror=function(){this.src='logo2.png'}">
+                        <img id="banner-hero" src="logo2.jpg" alt="Banner Informasi RSGMP Moestopo" class="w-full h-auto rounded-xl object-contain block" style="min-height: 150px;">
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
+    <!-- ============ ALUR PELAYANAN ============ -->
     <section id="alur-pelayanan" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
@@ -250,6 +267,7 @@
         </div>
     </section>
 
+    <!-- ============ SOP / MANAJEMEN K3 ============ -->
     <section id="sop" class="py-20 bg-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
@@ -282,6 +300,7 @@
         </div>
     </section>
 
+    <!-- ============ LAYANAN / KLINIK ============ -->
     <section id="layanan" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
@@ -321,6 +340,7 @@
         </div>
     </section>
 
+    <!-- ============ JADWAL DOKTER ============ -->
     <section id="jadwal" class="py-20 bg-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
@@ -337,7 +357,7 @@
                                 <th class="p-4">Senin - Rabu</th>
                                 <th class="p-4">Kamis - Jumat</th>
                                 <th class="p-4">Sabtu</th>
-                            </tr>
+                            </td>
                         </thead>
                         <tbody class="divide-y divide-slate-200 text-slate-700">
                             <tr class="hover:bg-slate-50">
@@ -369,10 +389,11 @@
             </div>
             
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Card Dokter 1 -->
                 <div class="bg-white p-3 rounded-2xl shadow-md border border-slate-200 flex flex-col justify-between">
                     <div>
                         <div class="overflow-hidden rounded-xl">
-                            <img src="./dokter1.jpg" alt="dr. Muhammad Fairuzaki" class="w-full h-auto object-cover" onerror="this.src='dokter1.jpg'">
+                            <img src="dokter1.jpg" alt="dr. Muhammad Fairuzaki" class="w-full h-auto object-cover">
                         </div>
                         <div class="p-4 text-center">
                             <h4 class="font-bold text-slate-800 text-sm">dr. Muhammad Fairuzaki</h4>
@@ -388,10 +409,11 @@
                     </div>
                 </div>
 
+                <!-- Card Dokter 2 -->
                 <div class="bg-white p-3 rounded-2xl shadow-md border border-slate-200 flex flex-col justify-between">
                     <div>
                         <div class="overflow-hidden rounded-xl">
-                            <img src="./dokter2.jpg" alt="dr. Alyka Sheila Masah" class="w-full h-auto object-cover" onerror="this.src='dokter2.jpg'">
+                            <img src="dokter2.jpg" alt="dr. Alyka Sheila Masah" class="w-full h-auto object-cover">
                         </div>
                         <div class="p-4 text-center">
                             <h4 class="font-bold text-slate-800 text-sm">dr. Alyka Sheila Masah</h4>
@@ -407,10 +429,11 @@
                     </div>
                 </div>
 
+                <!-- Card Dokter 3 -->
                 <div class="bg-white p-3 rounded-2xl shadow-md border border-slate-200 flex flex-col justify-between">
                     <div>
                         <div class="overflow-hidden rounded-xl">
-                            <img src="./dokter3.jpg" alt="dr. Ratu Raniazahra Jonis" class="w-full h-auto object-cover" onerror="this.src='dokter3.jpg'">
+                            <img src="dokter3.jpg" alt="dr. Ratu Raniazahra Jonis" class="w-full h-auto object-cover">
                         </div>
                         <div class="p-4 text-center">
                             <h4 class="font-bold text-slate-800 text-sm">dr. Ratu Raniazahra Jonis</h4>
@@ -426,10 +449,11 @@
                     </div>
                 </div>
 
+                <!-- Card Dokter 4 -->
                 <div class="bg-white p-3 rounded-2xl shadow-md border border-slate-200 flex flex-col justify-between">
                     <div>
                         <div class="overflow-hidden rounded-xl">
-                            <img src="./dokter4.jpg" alt="dr. Fathul Jannah" class="w-full h-auto object-cover" onerror="this.src='dokter4.jpg'">
+                            <img src="dokter4.jpg" alt="dr. Fathul Jannah" class="w-full h-auto object-cover">
                         </div>
                         <div class="p-4 text-center">
                             <h4 class="font-bold text-slate-800 text-sm">dr. Fathul Jannah</h4>
@@ -445,10 +469,11 @@
                     </div>
                 </div>
 
+                <!-- Card Dokter 5 -->
                 <div class="bg-white p-3 rounded-2xl shadow-md border border-slate-200 flex flex-col justify-between">
                     <div>
                         <div class="overflow-hidden rounded-xl">
-                            <img src="./dokter5.jpg" alt="dr. Andy Hidayat, M.Biomed" class="w-full h-auto object-cover" onerror="this.src='dokter5.jpg'">
+                            <img src="dokter5.jpg" alt="dr. Andy Hidayat, M.Biomed" class="w-full h-auto object-cover">
                         </div>
                         <div class="p-4 text-center">
                             <h4 class="font-bold text-slate-800 text-sm">dr. Andy Hidayat, M.Biomed</h4>
@@ -462,10 +487,11 @@
                     </div>
                 </div>
 
+                <!-- Card Dokter 6 -->
                 <div class="bg-white p-3 rounded-2xl shadow-md border border-slate-200 flex flex-col justify-between">
                     <div>
                         <div class="overflow-hidden rounded-xl">
-                            <img src="./dokter6.jpg" alt="dr. Winita" class="w-full h-auto object-cover" onerror="this.src='dokter6.jpg'; this.onerror=function(){this.src='dokter6.png'}">
+                            <img src="dokter6.jpg" alt="dr. Winita" class="w-full h-auto object-cover">
                         </div>
                         <div class="p-4 text-center">
                             <h4 class="font-bold text-slate-800 text-sm">dr. Winita</h4>
@@ -481,10 +507,11 @@
                     </div>
                 </div>
 
+                <!-- Card Dokter 7 -->
                 <div class="bg-white p-3 rounded-2xl shadow-md border border-slate-200 flex flex-col justify-between">
                     <div>
                         <div class="overflow-hidden rounded-xl">
-                            <img src="./dokter7.jpg" alt="dr. Yossy Melna Aufah" class="w-full h-auto object-cover" onerror="this.src='dokter7.jpg'; this.onerror=function(){this.src='dokter7.png'}">
+                            <img src="dokter7.jpg" alt="dr. Yossy Melna Aufah" class="w-full h-auto object-cover">
                         </div>
                         <div class="p-4 text-center">
                             <h4 class="font-bold text-slate-800 text-sm">dr. Yossy Melna Aufah</h4>
@@ -503,6 +530,7 @@
         </div>
     </section>
 
+    <!-- ============ PENDAFTARAN ONLINE ============ -->
     <section id="pendaftaran" class="py-20 bg-white">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-10">
@@ -561,6 +589,7 @@
         </div>
     </section>
 
+    <!-- ============ FAQ ============ -->
     <section id="faq" class="py-20 bg-slate-100">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
@@ -609,6 +638,7 @@
         </div>
     </section>
 
+    <!-- ============ FASILITAS ============ -->
     <section id="fasilitas" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
@@ -638,72 +668,146 @@
         </div>
     </section>
 
+    <!-- ============ FORM LAPORAN K3 ============ -->
     <section id="k3-report" class="py-20 bg-slate-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-12 items-stretch">
-                
-                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
-                    <div>
-                        <h2 class="text-2xl font-black mb-4 text-purple-moestopo"><i class="fas fa-exclamation-triangle mr-2 text-red-500"></i>Form Pelaporan K3RS & Saran</h2>
-                        <form class="space-y-4" onsubmit="alert('Laporan berhasil dikirim ke unit K3RS & GA.'); return false;">
-                            <div>
-                                <label class="block text-xs font-semibold uppercase mb-1 text-slate-600">Nama Pelapor</label>
-                                <input type="text" class="w-full bg-slate-50 text-slate-800 rounded-lg p-3 text-sm border border-slate-300 focus:outline-none focus:border-purple-moestopo" placeholder="Contoh: Staf GA / Umum">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold uppercase mb-1 text-slate-600">Kategori Temuan</label>
-                                <select class="w-full bg-slate-50 text-slate-800 rounded-lg p-3 text-sm border border-slate-300 focus:outline-none focus:border-purple-moestopo">
-                                    <option>Potensi Bahaya Fisik/Fasilitas</option>
-                                    <option>Kerusakan Instrumen Sterilisasi</option>
-                                    <option>Saran Perbaikan Mutu Pelayanan</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold uppercase mb-1 text-slate-600">Deskripsi Detail</label>
-                                <textarea rows="3" class="w-full bg-slate-50 text-slate-800 rounded-lg p-3 text-sm border border-slate-300 focus:outline-none focus:border-purple-moestopo" placeholder="Tulis rincian di sini..."></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-purple-moestopo hover:bg-opacity-90 text-white font-bold p-3 rounded-lg text-sm shadow-md transition">
-                                Kirim Laporan Resmi
-                            </button>
-                        </form>
-                    </div>
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+                <h2 class="text-2xl font-black mb-6 text-purple-moestopo">
+                    <i class="fas fa-exclamation-triangle mr-2 text-red-500"></i>Form Pelaporan K3RS & Saran
+                </h2>
+                <div>
+                    <label class="block text-xs font-semibold uppercase mb-1 text-slate-600">Nama Pelapor</label>
+                    <input type="text" id="input-nama" required class="w-full bg-slate-50 text-slate-800 rounded-lg p-3 text-sm border border-slate-300" placeholder="Contoh: Staf GA / Umum">
                 </div>
-
-                <div class="w-full bg-white p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between min-h-[350px]">
-                    <div class="space-y-4">
-                        <div class="flex items-center space-x-3 text-purple-moestopo">
-                            <i class="fas fa-map-marked-alt text-3xl text-red-500"></i>
-                            <h3 class="text-xl font-black uppercase tracking-tight">Lokasi Resmi Rumah Sakit</h3>
-                        </div>
-                        <div class="w-16 h-1 bg-purple-moestopo rounded-full"></div>
-                        <p class="text-sm font-bold text-slate-800">RSGMP Universitas Prof. Dr. Moestopo (Beragama)</p>
-                        <p class="text-xs text-slate-600 leading-relaxed">
-                            <i class="fas fa-map-marker-alt text-purple-moestopo mr-2"></i>Jl. Bintaro Permai Raya No.3, RT.6/RW.1, Pesanggrahan, Kec. Pesanggrahan, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12320.
-                        </p>
-                        <div class="bg-purple-50 p-4 rounded-xl border border-purple-100 text-xs text-slate-600">
-                            <span class="font-bold text-purple-moestopo block mb-1"><i class="fas fa-info-circle mr-1"></i> Informasi Akses Mudah:</span>
-                            Klik tombol navigasi di bawah ini untuk langsung membuka peta lokasi akurat dan menghitung rute GPS tercepat menuju rumah sakit melalui aplikasi Google Maps.
-                        </div>
-                    </div>
-                    
-                    <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m4!2s0x2e69f067425f1903%3A0x6bfe76e2716a5db8!2sRSGMP%20Prof.%20Dr.%20Moestopo!5m2!1sid!2sid3" 
-                       target="_blank" 
-                       rel="noopener noreferrer"
-                       class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold p-4 rounded-xl text-center shadow-lg transition flex items-center justify-center gap-2 mt-4">
-                        <i class="fas fa-location-arrow animate-bounce"></i> Buka Rute Jalan di Google Maps Staf/Pasien
-                    </a>
+                <div class="mt-4">
+                    <label class="block text-xs font-semibold uppercase mb-1 text-slate-600">Kategori Temuan</label>
+                    <select id="input-kategori" class="w-full bg-slate-50 text-slate-800 rounded-lg p-3 text-sm border border-slate-300">
+                        <option value="Potensi Bahaya Fisik/Fasilitas">Potensi Bahaya Fisik/Fasilitas</option>
+                        <option value="Kerusakan Instrumen Sterilisasi">Kerusakan Instrumen Sterilisasi</option>
+                        <option value="Saran Perbaikan Mutu Pelayanan">Saran Perbaikan Mutu Pelayanan</option>
+                    </select>
                 </div>
-
+                <div class="mt-4">
+                    <label class="block text-xs font-semibold uppercase mb-1 text-slate-600">Deskripsi Detail</label>
+                    <textarea id="input-deskripsi" rows="3" required class="w-full bg-slate-50 text-slate-800 rounded-lg p-3 text-sm border border-slate-300" placeholder="Tulis rincian di sini..."></textarea>
+                </div>
+                <button onclick="kirimKeWA()" class="w-full bg-purple-moestopo hover:bg-opacity-90 text-white font-bold p-3 rounded-lg shadow-md transition mt-4">
+                    Kirim Laporan Resmi
+                </button>
             </div>
         </div>
     </section>
 
+    <!-- ============ LOKASI MAP PROFESIONAL (TANPA STREET VIEW) ============ -->
+    <section id="lokasi-rs" class="py-20 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-black text-slate-900 mb-3">Lokasi Kami</h2>
+                <div class="w-24 h-1 bg-purple-moestopo mx-auto rounded-full mb-4"></div>
+                <p class="text-slate-500 max-w-2xl mx-auto">Rumah Sakit Gigi dan Mulut Pendidikan Prof. Dr. Moestopo (Beragama) - Unit Bintaro</p>
+            </div>
+
+            <!-- Card Peta Profesional -->
+            <div class="max-w-5xl mx-auto bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                
+                <!-- Google Maps Iframe -->
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.123456789012!2d106.7586!3d-6.2668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f1e1e1e1e1e1%3A0x1234567890abcdef!2sRumah%20Sakit%20Gigi%20Dan%20Mulut%20Prof.%20Dr.%20Moestopo%20(Beragama)!5e0!3m2!1sid!2sid!4v1234567890123!5m2!1sid!2sid" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Peta Lokasi RSGMP Moestopo Bintaro">
+                    </iframe>
+                </div>
+
+                <!-- Informasi Alamat Lengkap -->
+                <div class="p-6 md:p-8">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Kolom Alamat -->
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <div class="bg-purple-100 rounded-xl p-2.5 mt-0.5">
+                                    <i class="fas fa-location-dot text-purple-moestopo text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wider">Alamat Lengkap</h4>
+                                    <p class="text-slate-600 text-sm leading-relaxed mt-1">
+                                        Jl. Bintaro Permai No.3, RT.6/RW.1, Bintaro,<br>
+                                        Kec. Pesanggrahan, Kota Jakarta Selatan,<br>
+                                        Daerah Khusus Ibukota Jakarta 12330
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="bg-purple-100 rounded-xl p-2.5">
+                                    <i class="fas fa-clock text-purple-moestopo text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wider">Jam Operasional</h4>
+                                    <p class="text-slate-600 text-sm mt-1">
+                                        <span class="font-semibold text-green-600">● 24 Jam</span> (Layanan Gawat Darurat)<br>
+                                        <span class="text-slate-500">Klinik reguler: 08:00 - 20:00 WIB</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Kolom Kontak & Aksi -->
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <div class="bg-purple-100 rounded-xl p-2.5">
+                                    <i class="fas fa-phone-alt text-purple-moestopo text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wider">Kontak</h4>
+                                    <p class="text-slate-600 text-sm mt-1">
+                                        <a href="tel:+622173885251" class="hover:text-purple-moestopo transition flex items-center gap-1">
+                                            <i class="fas fa-phone"></i> (021) 73885251
+                                        </a>
+                                        <a href="https://wa.me/6281291563492" class="hover:text-green-600 transition flex items-center gap-1 mt-1">
+                                            <i class="fab fa-whatsapp text-green-600"></i> +62 812-9156-3492
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-3 pt-2">
+                                <a href="https://maps.app.goo.gl/9VwpmboCZh1oqrLk7" target="_blank" 
+                                   class="flex-1 bg-purple-moestopo hover:bg-purple-700 text-white font-semibold px-4 py-3 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-sm">
+                                    <i class="fab fa-google"></i> Buka di Google Maps
+                                </a>
+                                <a href="https://wa.me/6281291563492?text=Halo%20Admin%20RSGMP%20Moestopo,%20saya%20ingin%20bertanya%20mengenai%20lokasi%20dan%20rute%20menuju%20RS.%0A%0A*Yang%20ingin%20saya%20tanyakan:*%0A1.%20Apa%20saja%20landmark%20atau%20penanda%20yang%20mudah%20dikenali%20dekat%20RS?%0A2.%20Apakah%20ada%20rute%20alternatif%20jika%20jalan%20utama%20macet?%0A3.%20Apakah%20tersedia%20area%20parkir%20yang%20cukup%20luas?%0A4.%20Apakah%20RS%20mudah%20dijangkau%20dengan%20transportasi%20umum?%0A%0ATerima%20kasih%20bantuannya." 
+                                   target="_blank"
+                                   class="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-4 py-3 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-sm">
+                                    <i class="fab fa-whatsapp"></i> Tanya Via WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tombol Navigasi - HANYA PETUNJUK ARAH (Street View dihapus) -->
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex justify-center">
+                        <a href="https://maps.app.goo.gl/9VwpmboCZh1oqrLk7" target="_blank"
+                           class="inline-flex items-center gap-2 text-purple-moestopo hover:text-purple-700 font-medium text-sm transition">
+                            <i class="fas fa-directions"></i> Dapatkan Petunjuk Arah
+                            <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
     <footer class="bg-slate-950 text-white pt-16 pb-8 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-12 mb-12">
                 <div class="md:col-span-2">
                     <div class="flex items-center space-x-3 mb-4">
-                        <img src="logo.png" alt="Footer Logo" class="h-10 bg-white p-1 rounded-md" onerror="this.src='logo.PNG'">
+                        <img src="logo.png" alt="Footer Logo" class="h-10 bg-white p-1 rounded-md">
                         <span class="font-black text-xl tracking-tight">RSGMP MOESTOPO</span>
                     </div>
                     <p class="text-slate-400 text-xs max-w-sm leading-relaxed">Pusat pelayanan klinis gigi modern terintegrasi dengan penjaminan mutu tata kelola Keselamatan & Kesehatan Kerja Rumah Sakit (K3RS).</p>
@@ -731,10 +835,11 @@
     </footer>
 
     <script>
-        // IDE NOMOR 3: Kunci validasi input Tanggal Lahir agar tidak bisa memilih masa depan (Maksimal hari ini)
+        // Validasi tanggal lahir tidak bisa pilih masa depan
         document.addEventListener("DOMContentLoaded", function() {
             var today = new Date().toISOString().split('T')[0];
-            document.getElementById("pasien-dob").setAttribute('max', today);
+            var dobInput = document.getElementById("pasien-dob");
+            if (dobInput) dobInput.setAttribute('max', today);
         });
 
         // Hamburger Mobile Menu Logic
@@ -768,7 +873,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Toggle Mode Gelap Premium yang Teduh di Mata
+        // Toggle Mode Gelap Premium
         function toggleDarkModePremium() {
             document.body.classList.toggle("dark-premium-mode");
         }
@@ -779,7 +884,7 @@
             faqItem.classList.toggle("active");
         }
 
-        // Whatsapp Booking Engine Parser
+        // Whatsapp Booking Engine
         function handleFormPendaftaran(event) {
             event.preventDefault();
             
@@ -798,6 +903,22 @@
             
             var whatsappUrl = "https://api.whatsapp.com/send?phone=6281291563492&text=" + baseText;
             window.open(whatsappUrl, '_blank');
+        }
+
+        // Form Laporan K3 ke WhatsApp
+        function kirimKeWA() {
+            var nama = document.getElementById('input-nama').value;
+            var kategori = document.getElementById('input-kategori').value;
+            var detail = document.getElementById('input-deskripsi').value;
+
+            var teksFinal = "*LAPORAN RESMI K3RS & GA*\n---------------------------\n" +
+                            "*Nama Pelapor:* " + nama + "\n" +
+                            "*Kategori:* " + kategori + "\n" +
+                            "*Detail:* " + detail + "\n---------------------------\n" +
+                            "Mohon segera ditindaklanjuti. Terima kasih.";
+
+            var url = "https://wa.me/6281291563492?text=" + encodeURIComponent(teksFinal);
+            window.open(url, '_blank');
         }
     </script>
 </body>
