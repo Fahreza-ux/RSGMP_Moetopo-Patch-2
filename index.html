@@ -638,16 +638,7 @@
         </div>
     </section>
 
-   <section id="k3-report" class="py-20 bg-slate-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-2 gap-12 items-start">
-            
-            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
-                <h2 class="text-2xl font-black mb-6 text-purple-moestopo">
-                    <i class="fas fa-exclamation-triangle mr-2 text-red-500"></i>Form Pelaporan K3RS & Saran
-                </h2>
-                
-               <form id="form-k3" class="space-y-4">
+   <form id="form-k3" class="space-y-4">
     <div>
         <label class="block text-xs font-semibold uppercase mb-1 text-slate-600">Nama Pelapor</label>
         <input type="text" id="input-nama" required class="w-full bg-slate-50 text-slate-800 rounded-lg p-3 text-sm border border-slate-300 focus:outline-none focus:border-purple-moestopo" placeholder="Contoh: Staf GA / Umum">
@@ -813,35 +804,25 @@
             var whatsappUrl = "https://api.whatsapp.com/send?phone=6281291563492&text=" + baseText;
             window.open(whatsappUrl, '_blank');
         }
-     function kirimKeWA() {
-    // 1. Ambil elemen secara langsung
-    const elNama = document.getElementById('input-nama');
-    const elKategori = document.getElementById('input-kategori');
-    const elDeskripsi = document.getElementById('input-deskripsi');
+    <script>
+    function kirimKeWA() {
+        const nama = document.getElementById('input-nama').value;
+        const kategori = document.getElementById('input-kategori').value;
+        const detail = document.getElementById('input-deskripsi').value;
 
-    // 2. Ambil nilainya
-    const nama = elNama.value;
-    const kategori = elKategori.value;
-    const deskripsi = elDeskripsi.value;
+        // Cek apakah data terbaca di console
+        console.log("Data:", nama, kategori, detail);
 
-    // 3. Debug: Cek apakah nilainya terbaca (muncul di console browser)
-    console.log("Nama:", nama);
-    console.log("Kategori:", kategori);
-    console.log("Deskripsi:", deskripsi);
+        const text = `*LAPORAN RESMI K3RS & GA*%0A` +
+                     `---------------------------%0A` +
+                     `*Nama Pelapor:* ${nama}%0A` +
+                     `*Kategori:* ${kategori}%0A` +
+                     `*Detail:* ${detail}%0A` +
+                     `---------------------------%0A` +
+                     `Mohon segera ditindaklanjuti. Terima kasih.`;
 
-    // 4. Susun teks dengan memastikan nilai variabel tidak kosong
-    const text = "*LAPORAN RESMI K3RS & GA*\n" +
-                 "---------------------------\n" +
-                 "*Nama Pelapor:* " + (nama || "Tidak diisi") + "\n" +
-                 "*Kategori:* " + (kategori || "Tidak diisi") + "\n" +
-                 "*Detail:* " + (deskripsi || "Tidak diisi") + "\n" +
-                 "---------------------------\n" +
-                 "Mohon segera ditindaklanjuti.";
-
-    // 5. Buka WhatsApp (menggunakan encodeURIComponent agar format aman)
-    const url = "https://wa.me/6281291563492?text=" + encodeURIComponent(text);
-    window.open(url, '_blank');
-}
+        window.open("https://wa.me/6281291563492?text=" + text, '_blank');
+    }
     </script>
 </body>
 </html>
