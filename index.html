@@ -800,13 +800,13 @@
       function handleLaporanK3(event) {
     event.preventDefault();
 
-    // Mengambil elemen form dari event yang dikirim
-    const form = event.target;
-    
-    // Mengambil data berdasarkan nama field (pastikan input punya atribut 'name')
-    const nama = form.querySelector('input[type="text"]').value;
-    const kategori = form.querySelector('select').value;
-    const detail = form.querySelector('textarea').value;
+    // Mengambil semua elemen input di dalam form yang diklik
+    const inputs = event.target.elements;
+
+    // Mengambil nilai berdasarkan urutan
+    const nama = inputs[0].value;     // Input pertama (Nama Pelapor)
+    const kategori = inputs[1].value; // Select kedua (Kategori)
+    const detail = inputs[2].value;   // Textarea ketiga (Deskripsi)
 
     // Menyusun pesan
     const text = `*LAPORAN RESMI K3RS & GA*%0A` +
@@ -817,7 +817,7 @@
                  `---------------------------%0A` +
                  `Mohon segera ditindaklanjuti. Terima kasih.`;
 
-    // Mengirim ke WA
+    // Kirim ke WA
     window.open(`https://wa.me/6281291563492?text=${text}`, '_blank');
 }
     </script>
