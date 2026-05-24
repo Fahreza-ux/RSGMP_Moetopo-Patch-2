@@ -540,13 +540,14 @@
         </div>
     </section>
 
-    <!-- ============ PENDAFTARAN ONLINE ============ -->
+    <!-- ============ PENDAFTARAN ONLINE (DENGAN DYNAMIC DOCTOR SCHEDULE) ============ -->
     <section id="pendaftaran" class="py-20 bg-white">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-10">
                 <h2 class="text-3xl font-black text-slate-900 mb-2">Pendaftaran Pasien Online</h2>
                 <div class="w-20 h-1.5 bg-purple-moestopo mx-auto rounded-full mb-4"></div>
                 <p class="text-sm text-slate-500">Isi data di bawah untuk membuat janji temu otomatis via WhatsApp Resmi</p>
+                <p class="text-xs text-purple-600 mt-1">*Pilihan dokter akan otomatis menyesuaikan dengan hari yang dipilih</p>
             </div>
             
             <div class="bg-purple-light p-6 md:p-10 rounded-3xl border border-purple-100 shadow-sm">
@@ -575,14 +576,8 @@
                     </div>
                     <div>
                         <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Pilih Dokter Tujuan</label>
-                        <select id="chosen-doctor" class="w-full bg-white text-slate-800 rounded-xl p-3.5 text-sm border border-slate-200 focus:outline-none focus:border-purple-moestopo shadow-inner">
-                            <option>dr. Muhammad Fairuzaki (Dokter Umum)</option>
-                            <option>dr. Alyka Sheila Masah (Dokter Umum)</option>
-                            <option>dr. Ratu Raniazahra Jonis (Dokter Umum)</option>
-                            <option>dr. Fathul Jannah (Dokter Umum)</option>
-                            <option>dr. Andy Hidayat, M.Biomed (Dokter Umum)</option>
-                            <option>dr. Winita (Dokter Umum)</option>
-                            <option>dr. Yossy Melna Aufah (Dokter Umum)</option>
+                        <select id="chosen-doctor" required class="w-full bg-white text-slate-800 rounded-xl p-3.5 text-sm border border-slate-200 focus:outline-none focus:border-purple-moestopo shadow-inner">
+                            <option>-- Pilih hari terlebih dahulu --</option>
                         </select>
                     </div>
                     
@@ -828,6 +823,7 @@
                     <ul class="space-y-2 text-xs text-slate-400">
                         <li><i class="fas fa-map-marker-alt mr-2 text-purple-400"></i> Jl. Bintaro Permai Raya No.3, Pesanggrahan, Jakarta Selatan.</li>
                         <li><i class="fas fa-phone-alt mr-2 text-purple-400"></i> (021) 73885254</li>
+                        <li><i class="fas fa-envelope mr-2 text-purple-400"></i> info@rsgmp.moestopo.ac.id</li>
                     </ul>
                 </div>
             </div>
@@ -838,6 +834,75 @@
     </footer>
 
     <script>
+        // ============ DOCTOR SCHEDULE DATABASE (DYNAMIC) ============
+        const doctorSchedule = {
+            "Senin": [
+                "dr. Alyka Sheila Masah (Dokter Umum)",
+                "dr. Ratu Raniazahra Jonis (Dokter Umum)",
+                "dr. Andy Hidayat, M.Biomed (Dokter Umum)",
+                "dr. Winita (Dokter Umum)"
+            ],
+            "Selasa": [
+                "dr. Alyka Sheila Masah (Dokter Umum)",
+                "dr. Ratu Raniazahra Jonis (Dokter Umum)",
+                "dr. Winita (Dokter Umum)",
+                "dr. Yossy Melna Aufah (Dokter Umum)"
+            ],
+            "Rabu": [
+                "dr. Fathul Jannah (Dokter Umum)",
+                "dr. Winita (Dokter Umum)",
+                "dr. Yossy Melna Aufah (Dokter Umum)"
+            ],
+            "Kamis": [
+                "dr. Muhammad Fairuzaki (Dokter Umum)",
+                "dr. Ratu Raniazahra Jonis (Dokter Umum)",
+                "dr. Fathul Jannah (Dokter Umum)",
+                "dr. Yossy Melna Aufah (Dokter Umum)"
+            ],
+            "Jumat": [
+                "dr. Muhammad Fairuzaki (Dokter Umum)",
+                "dr. Fathul Jannah (Dokter Umum)",
+                "dr. Andy Hidayat, M.Biomed (Dokter Umum)"
+            ],
+            "Sabtu": [
+                "dr. Muhammad Fairuzaki (Dokter Umum)",
+                "dr. Alyka Sheila Masah (Dokter Umum)"
+            ],
+            "Minggu": [
+                "dr. Muhammad Fairuzaki (Dokter Umum)",
+                "dr. Alyka Sheila Masah (Dokter Umum)",
+                "dr. Fathul Jannah (Dokter Umum)"
+            ]
+        };
+
+        // Fungsi untuk update pilihan dokter berdasarkan hari yang dipilih
+        function updateDoctorOptions(selectedDay) {
+            const doctorSelect = document.getElementById("chosen-doctor");
+            if (!doctorSelect) return;
+            
+            const doctors = doctorSchedule[selectedDay] || [];
+            
+            // Clear existing options
+            doctorSelect.innerHTML = "";
+            
+            if (doctors.length === 0) {
+                // Jika tidak ada dokter di hari tersebut
+                const option = document.createElement("option");
+                option.textContent = "Tidak ada dokter praktik di hari ini";
+                option.disabled = true;
+                option.selected = true;
+                doctorSelect.appendChild(option);
+            } else {
+                // Tambahkan pilihan dokter yang tersedia
+                doctors.forEach(doctor => {
+                    const option = document.createElement("option");
+                    option.value = doctor;
+                    option.textContent = doctor;
+                    doctorSelect.appendChild(option);
+                });
+            }
+        }
+
         // Fungsi smooth scroll dengan offset untuk navbar fixed
         function smoothScrollTo(elementId) {
             const element = document.getElementById(elementId);
@@ -878,10 +943,20 @@
                     }
                 });
             });
-        });
-
-        // Validasi tanggal lahir tidak bisa pilih masa depan
-        document.addEventListener("DOMContentLoaded", function() {
+            
+            // ============ INITIALIZE DYNAMIC DOCTOR SCHEDULE ============
+            const daySelect = document.getElementById("visit-day");
+            if (daySelect) {
+                // Set default berdasarkan hari yang dipilih pertama kali
+                updateDoctorOptions(daySelect.value);
+                
+                // Tambahkan event listener ketika hari berubah
+                daySelect.addEventListener("change", function() {
+                    updateDoctorOptions(this.value);
+                });
+            }
+            
+            // Validasi tanggal lahir tidak bisa pilih masa depan
             var today = new Date().toISOString().split('T')[0];
             var dobInput = document.getElementById("pasien-dob");
             if (dobInput) dobInput.setAttribute('max', today);
@@ -937,6 +1012,12 @@
             var dob = document.getElementById("pasien-dob").value;
             var day = document.getElementById("visit-day").value;
             var doctor = document.getElementById("chosen-doctor").value;
+            
+            // Validasi apakah dokter valid (bukan pesan error)
+            if (doctor === "Tidak ada dokter praktik di hari ini" || doctor === "-- Pilih hari terlebih dahulu --") {
+                alert("Mohon pilih hari kunjungan terlebih dahulu dengan dokter yang tersedia.");
+                return;
+            }
             
             var baseText = "Halo Admin RSGMP Moestopo, saya ingin mendaftar layanan kunjungan klinis.%0A%0A" +
                            "*Data Pasien:*%0A" +
