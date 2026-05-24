@@ -11,7 +11,11 @@
             --purple-main: #514fa1;
             --purple-light: #f5f3ff;
         }
-        html { scroll-behavior: smooth; }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
         .bg-purple-moestopo { background-color: var(--purple-main); }
         .text-purple-moestopo { color: var(--purple-main); }
         .border-purple-moestopo { border-color: var(--purple-main); }
@@ -151,10 +155,10 @@
     </a>
 
     <!-- ============ NAVBAR ============ -->
-    <nav class="bg-white shadow-lg fixed w-full z-50">
+    <nav class="bg-white shadow-lg fixed w-full z-50 top-0">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-24 items-center">
-                <!-- ✅ LOGO DAN TEKS BISA DIKLIK UNTUK BALIK KE ATAS -->
+                <!-- Logo bisa diklik balik ke atas -->
                 <div onclick="scrollToTop()" class="flex items-center space-x-3 cursor-pointer">
                     <img src="logo.png" alt="Logo Resmi RSGMP Moestopo" class="h-16 w-auto object-contain" onerror="this.style.display='none'">
                     <div>
@@ -164,14 +168,14 @@
                 </div>
                 
                 <div class="hidden lg:flex items-center space-x-5 font-semibold text-sm">
-                    <a href="#beranda" class="text-slate-600 hover:text-purple-moestopo transition">Beranda</a>
-                    <a href="#alur-pelayanan" class="text-slate-600 hover:text-purple-moestopo transition">Alur Pasien</a>
-                    <a href="#sop" class="text-slate-600 hover:text-purple-moestopo transition">Manajemen K3</a>
-                    <a href="#layanan" class="text-slate-600 hover:text-purple-moestopo transition">Klinik</a>
-                    <a href="#jadwal" class="text-slate-600 hover:text-purple-moestopo transition">Jadwal Dokter</a>
-                    <a href="#pendaftaran" class="text-slate-600 hover:text-purple-moestopo transition">Daftar Online</a>
-                    <a href="#faq" class="text-slate-600 hover:text-purple-moestopo transition">FAQ</a>
-                    <a href="#fasilitas" class="text-slate-600 hover:text-purple-moestopo transition">Fasilitas</a>
+                    <a href="#beranda" class="nav-link text-slate-600 hover:text-purple-moestopo transition" data-target="beranda">Beranda</a>
+                    <a href="#alur-pelayanan" class="nav-link text-slate-600 hover:text-purple-moestopo transition" data-target="alur-pelayanan">Alur Pasien</a>
+                    <a href="#sop" class="nav-link text-slate-600 hover:text-purple-moestopo transition" data-target="sop">Manajemen K3</a>
+                    <a href="#layanan" class="nav-link text-slate-600 hover:text-purple-moestopo transition" data-target="layanan">Klinik</a>
+                    <a href="#jadwal" class="nav-link text-slate-600 hover:text-purple-moestopo transition" data-target="jadwal">Jadwal Dokter</a>
+                    <a href="#pendaftaran" class="nav-link text-slate-600 hover:text-purple-moestopo transition" data-target="pendaftaran">Daftar Online</a>
+                    <a href="#faq" class="nav-link text-slate-600 hover:text-purple-moestopo transition" data-target="faq">FAQ</a>
+                    <a href="#fasilitas" class="nav-link text-slate-600 hover:text-purple-moestopo transition" data-target="fasilitas">Fasilitas</a>
                     <a href="#k3-report" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition flex items-center gap-2">
                         <i class="fas fa-exclamation-triangle"></i> Lapor K3
                     </a>
@@ -192,14 +196,14 @@
         </div>
 
         <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-100 shadow-inner px-4 pt-2 pb-6 space-y-3 font-semibold text-sm">
-            <a href="#beranda" onclick="toggleMobileMenu()" class="block text-slate-600 py-2 border-b border-slate-50">Beranda</a>
-            <a href="#alur-pelayanan" onclick="toggleMobileMenu()" class="block text-slate-600 py-2 border-b border-slate-50">Alur Pasien</a>
-            <a href="#sop" onclick="toggleMobileMenu()" class="block text-slate-600 py-2 border-b border-slate-50">Manajemen K3</a>
-            <a href="#layanan" onclick="toggleMobileMenu()" class="block text-slate-600 py-2 border-b border-slate-50">Klinik</a>
-            <a href="#jadwal" onclick="toggleMobileMenu()" class="block text-slate-600 py-2 border-b border-slate-50">Jadwal Dokter</a>
-            <a href="#pendaftaran" onclick="toggleMobileMenu()" class="block text-slate-600 py-2 border-b border-slate-50">Daftar Online</a>
-            <a href="#faq" onclick="toggleMobileMenu()" class="block text-slate-600 py-2 border-b border-slate-50">FAQ</a>
-            <a href="#fasilitas" onclick="toggleMobileMenu()" class="block text-slate-600 py-2 border-b border-slate-50">Fasilitas</a>
+            <a href="#beranda" onclick="smoothScrollTo('beranda'); toggleMobileMenu();" class="block text-slate-600 py-2 border-b border-slate-50">Beranda</a>
+            <a href="#alur-pelayanan" onclick="smoothScrollTo('alur-pelayanan'); toggleMobileMenu();" class="block text-slate-600 py-2 border-b border-slate-50">Alur Pasien</a>
+            <a href="#sop" onclick="smoothScrollTo('sop'); toggleMobileMenu();" class="block text-slate-600 py-2 border-b border-slate-50">Manajemen K3</a>
+            <a href="#layanan" onclick="smoothScrollTo('layanan'); toggleMobileMenu();" class="block text-slate-600 py-2 border-b border-slate-50">Klinik</a>
+            <a href="#jadwal" onclick="smoothScrollTo('jadwal'); toggleMobileMenu();" class="block text-slate-600 py-2 border-b border-slate-50">Jadwal Dokter</a>
+            <a href="#pendaftaran" onclick="smoothScrollTo('pendaftaran'); toggleMobileMenu();" class="block text-slate-600 py-2 border-b border-slate-50">Daftar Online</a>
+            <a href="#faq" onclick="smoothScrollTo('faq'); toggleMobileMenu();" class="block text-slate-600 py-2 border-b border-slate-50">FAQ</a>
+            <a href="#fasilitas" onclick="smoothScrollTo('fasilitas'); toggleMobileMenu();" class="block text-slate-600 py-2 border-b border-slate-50">Fasilitas</a>
             <a href="#k3-report" onclick="toggleMobileMenu()" class="bg-red-500 text-white px-4 py-2.5 rounded-lg text-center block shadow-md">
                 <i class="fas fa-exclamation-triangle mr-2"></i>Lapor K3
             </a>
@@ -834,6 +838,48 @@
     </footer>
 
     <script>
+        // Fungsi smooth scroll dengan offset untuk navbar fixed
+        function smoothScrollTo(elementId) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                const navbarHeight = 96; // Tinggi navbar (h-24 = 96px)
+                const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = elementPosition - navbarHeight;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }
+        }
+
+        // Event listener untuk semua link navigasi
+        document.addEventListener('DOMContentLoaded', function() {
+            // Untuk desktop menu
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('data-target');
+                    smoothScrollTo(targetId);
+                });
+            });
+            
+            // Untuk tombol Pendaftaran Online dan Lihat Jadwal Dokter
+            const buttons = document.querySelectorAll('a[href^="#"]');
+            buttons.forEach(button => {
+                if (button.classList.contains('nav-link')) return;
+                button.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href && href !== '#' && href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        smoothScrollTo(targetId);
+                    }
+                });
+            });
+        });
+
         // Validasi tanggal lahir tidak bisa pilih masa depan
         document.addEventListener("DOMContentLoaded", function() {
             var today = new Date().toISOString().split('T')[0];
