@@ -643,32 +643,32 @@
             <div class="grid lg:grid-cols-2 gap-12 items-stretch">
                 
                 <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
-                    <div>
-                        <h2 class="text-2xl font-black mb-4 text-purple-moestopo"><i class="fas fa-exclamation-triangle mr-2 text-red-500"></i>Form Pelaporan K3RS & Saran</h2>
-                        <form class="space-y-4" onsubmit="alert('Laporan berhasil dikirim ke unit K3RS & GA.'); return false;">
-                            <div>
-                                <label class="block text-xs font-semibold uppercase mb-1 text-slate-600">Nama Pelapor</label>
-                                <input type="text" class="w-full bg-slate-50 text-slate-800 rounded-lg p-3 text-sm border border-slate-300 focus:outline-none focus:border-purple-moestopo" placeholder="Contoh: Staf GA / Umum">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold uppercase mb-1 text-slate-600">Kategori Temuan</label>
-                                <select class="w-full bg-slate-50 text-slate-800 rounded-lg p-3 text-sm border border-slate-300 focus:outline-none focus:border-purple-moestopo">
-                                    <option>Potensi Bahaya Fisik/Fasilitas</option>
-                                    <option>Kerusakan Instrumen Sterilisasi</option>
-                                    <option>Saran Perbaikan Mutu Pelayanan</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold uppercase mb-1 text-slate-600">Deskripsi Detail</label>
-                                <textarea rows="3" class="w-full bg-slate-50 text-slate-800 rounded-lg p-3 text-sm border border-slate-300 focus:outline-none focus:border-purple-moestopo" placeholder="Tulis rincian di sini..."></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-purple-moestopo hover:bg-opacity-90 text-white font-bold p-3 rounded-lg text-sm shadow-md transition">
-                                Kirim Laporan Resmi
-                            </button>
-                        </form>
-                    </div>
-                </div>
-
+    <div>
+        <h2 class="text-2xl font-black mb-4 text-purple-moestopo"><i class="fas fa-exclamation-triangle mr-2 text-red-500"></i>Form Pelaporan K3RS & Saran</h2>
+        
+        <form id="form-k3" onsubmit="handleLaporanK3(event)" class="space-y-4">
+            <div>
+                <label class="block text-xs font-semibold uppercase mb-1 text-slate-600">Nama Pelapor</label>
+                <input type="text" id="nama-pelapor" required class="w-full bg-slate-50 text-slate-800 rounded-lg p-3 text-sm border border-slate-300 focus:outline-none focus:border-purple-moestopo" placeholder="Contoh: Staf GA / Umum">
+            </div>
+            <div>
+                <label class="block text-xs font-semibold uppercase mb-1 text-slate-600">Kategori Temuan</label>
+                <select id="kategori" class="w-full bg-slate-50 text-slate-800 rounded-lg p-3 text-sm border border-slate-300 focus:outline-none focus:border-purple-moestopo">
+                    <option>Potensi Bahaya Fisik/Fasilitas</option>
+                    <option>Kerusakan Instrumen Sterilisasi</option>
+                    <option>Saran Perbaikan Mutu Pelayanan</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-xs font-semibold uppercase mb-1 text-slate-600">Deskripsi Detail</label>
+                <textarea id="deskripsi" rows="3" required class="w-full bg-slate-50 text-slate-800 rounded-lg p-3 text-sm border border-slate-300 focus:outline-none focus:border-purple-moestopo" placeholder="Tulis rincian di sini..."></textarea>
+            </div>
+            <button type="submit" class="w-full bg-purple-moestopo hover:bg-opacity-90 text-white font-bold p-3 rounded-lg text-sm shadow-md transition">
+                Kirim Laporan Resmi
+            </button>
+        </form>
+    </div>
+</div>
                 <div class="w-full bg-white p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between min-h-[350px]">
                     <div class="space-y-4">
                         <div class="flex items-center space-x-3 text-purple-moestopo">
@@ -799,6 +799,30 @@
             var whatsappUrl = "https://api.whatsapp.com/send?phone=6281291563492&text=" + baseText;
             window.open(whatsappUrl, '_blank');
         }
+        // Tambahkan fungsi ini di dalam tag <script> Anda
+function handleLaporanK3(event) {
+    event.preventDefault();
+
+    // Mengambil data dari form
+    // Pastikan input di HTML Anda memiliki id="nama-pelapor", id="kategori", id="deskripsi"
+    const nama = document.querySelector('input[placeholder="Contoh: Staf GA / Umum"]').value;
+    const kategori = document.querySelector('select').value;
+    const detail = document.querySelector('textarea').value;
+
+    // Menyusun pesan
+    const text = `*LAPORAN RESMI K3RS & GA*%0A` +
+                 `---------------------------%0A` +
+                 `*Nama Pelapor:* ${nama}%0A` +
+                 `*Kategori:* ${kategori}%0A` +
+                 `*Detail:* ${detail}%0A` +
+                 `---------------------------%0A` +
+                 `Mohon segera ditindaklanjuti. Terima kasih.`;
+
+    // Mengarahkan ke WhatsApp (Ganti nomor 6281291563492 jika perlu)
+    const url = `https://wa.me/6281291563492?text=${text}`;
+    
+    window.open(url, '_blank');
+}
     </script>
 </body>
 </html>
