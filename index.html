@@ -814,28 +814,33 @@
             window.open(whatsappUrl, '_blank');
         }
      function kirimKeWA() {
-    // Ambil data berdasarkan ID yang kita buat di form tadi
-    const nama = document.getElementById('input-nama').value;
-    const kategori = document.getElementById('input-kategori').value;
-    const deskripsi = document.getElementById('input-deskripsi').value;
+    // 1. Ambil elemen secara langsung
+    const elNama = document.getElementById('input-nama');
+    const elKategori = document.getElementById('input-kategori');
+    const elDeskripsi = document.getElementById('input-deskripsi');
 
-    // Cek apakah data sudah diisi (validasi sederhana)
-    if(nama === "" || deskripsi === "") {
-        alert("Mohon isi nama dan deskripsi terlebih dahulu!");
-        return;
-    }
+    // 2. Ambil nilainya
+    const nama = elNama.value;
+    const kategori = elKategori.value;
+    const deskripsi = elDeskripsi.value;
 
-    // Susun pesan
-    const pesan = `*LAPORAN RESMI K3RS & GA*%0A` +
-                  `---------------------------%0A` +
-                  `*Nama Pelapor:* ${nama}%0A` +
-                  `*Kategori:* ${kategori}%0A` +
-                  `*Detail:* ${deskripsi}%0A` +
-                  `---------------------------%0A` +
-                  `Mohon segera ditindaklanjuti. Terima kasih.`;
+    // 3. Debug: Cek apakah nilainya terbaca (muncul di console browser)
+    console.log("Nama:", nama);
+    console.log("Kategori:", kategori);
+    console.log("Deskripsi:", deskripsi);
 
-    // Buka WhatsApp
-    window.open("https://wa.me/6281291563492?text=" + pesan, '_blank');
+    // 4. Susun teks dengan memastikan nilai variabel tidak kosong
+    const text = "*LAPORAN RESMI K3RS & GA*\n" +
+                 "---------------------------\n" +
+                 "*Nama Pelapor:* " + (nama || "Tidak diisi") + "\n" +
+                 "*Kategori:* " + (kategori || "Tidak diisi") + "\n" +
+                 "*Detail:* " + (deskripsi || "Tidak diisi") + "\n" +
+                 "---------------------------\n" +
+                 "Mohon segera ditindaklanjuti.";
+
+    // 5. Buka WhatsApp (menggunakan encodeURIComponent agar format aman)
+    const url = "https://wa.me/6281291563492?text=" + encodeURIComponent(text);
+    window.open(url, '_blank');
 }
     </script>
 </body>
