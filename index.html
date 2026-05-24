@@ -804,25 +804,28 @@
             var whatsappUrl = "https://api.whatsapp.com/send?phone=6281291563492&text=" + baseText;
             window.open(whatsappUrl, '_blank');
         }
-    <script>
-    function kirimKeWA() {
-        const nama = document.getElementById('input-nama').value;
-        const kategori = document.getElementById('input-kategori').value;
-        const detail = document.getElementById('input-deskripsi').value;
+   function kirimKeWA() {
+    // 1. Ambil data
+    var nama = document.getElementById('input-nama').value;
+    var kategori = document.getElementById('input-kategori').value;
+    var detail = document.getElementById('input-deskripsi').value;
 
-        // Cek apakah data terbaca di console
-        console.log("Data:", nama, kategori, detail);
+    // 2. Susun pesan dengan cara manual (menghindari error ${})
+    var judul = "*LAPORAN RESMI K3RS & GA*\n";
+    var garis = "---------------------------\n";
+    var isiNama = "*Nama Pelapor:* " + nama + "\n";
+    var isiKategori = "*Kategori:* " + kategori + "\n";
+    var isiDetail = "*Detail:* " + detail + "\n";
+    var penutup = "\nMohon segera ditindaklanjuti. Terima kasih.";
 
-        const text = `*LAPORAN RESMI K3RS & GA*%0A` +
-                     `---------------------------%0A` +
-                     `*Nama Pelapor:* ${nama}%0A` +
-                     `*Kategori:* ${kategori}%0A` +
-                     `*Detail:* ${detail}%0A` +
-                     `---------------------------%0A` +
-                     `Mohon segera ditindaklanjuti. Terima kasih.`;
+    var teksFinal = judul + garis + isiNama + isiKategori + isiDetail + garis + penutup;
 
-        window.open("https://wa.me/6281291563492?text=" + text, '_blank');
-    }
+    // 3. Encode agar karakter spesial (seperti spasi & enter) terbaca di WA
+    var url = "https://wa.me/6281291563492?text=" + encodeURIComponent(teksFinal);
+
+    // 4. Buka
+    window.open(url, '_blank');
+}
     </script>
 </body>
 </html>
